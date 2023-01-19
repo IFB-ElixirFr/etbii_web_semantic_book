@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Combining graphs from multiple data sources &#8212; Web semantic - ETBII</title>
+    <title>Combining graphs from multiple data sources &#8212; Web semantic</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Life Science ontologies and Knowledge Graphs, HANDS-ON" href="2-Life_Science_ontologies_and_Knowledge_Graphs_-_hands_on.html" />
@@ -96,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Web semantic - ETBII</h1>
+      <h1 class="site-logo" id="site-title">Web semantic</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -480,8 +482,8 @@ Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: sparqlwrapper in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (2.0.0)
 Requirement already satisfied: rdflib&gt;=6.1.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from sparqlwrapper) (6.2.0)
 Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (65.3.0)
-Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (3.0.9)
 Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (0.6.1)
+Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (3.0.9)
 Requirement already satisfied: six in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from isodate-&gt;rdflib&gt;=6.1.1-&gt;sparqlwrapper) (1.16.0)
 </pre></div>
 </div>
@@ -590,15 +592,15 @@ FILTER (?P2 != ?P1)
 Requirement already satisfied: networkx in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (3.0)
 Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: matplotlib in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (3.6.3)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (4.38.0)
 Requirement already satisfied: pyparsing&gt;=2.2.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from matplotlib) (3.0.9)
 Requirement already satisfied: numpy&gt;=1.19 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.24.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (4.38.0)
-Requirement already satisfied: packaging&gt;=20.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from matplotlib) (21.3)
 Requirement already satisfied: python-dateutil&gt;=2.7 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from matplotlib) (2.8.2)
-Requirement already satisfied: pillow&gt;=6.2.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (9.4.0)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.4.4)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.0.7)
 Requirement already satisfied: cycler&gt;=0.10 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.0.7)
+Requirement already satisfied: packaging&gt;=20.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from matplotlib) (21.3)
+Requirement already satisfied: pillow&gt;=6.2.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (9.4.0)
 Requirement already satisfied: six&gt;=1.5 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
 Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: scipy in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (1.10.0)
@@ -1522,52 +1524,6 @@ http://purl.obolibrary.org/obo/UBERON_0006631: right atrium auricular region
 
 <span class="n">coExNet</span> <span class="o">=</span> <span class="n">KG</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">q2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">coExNet</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;turtle&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ParseException</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">43</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">q2</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="s2"> PREFIX genex: &lt;http://purl.org/genex#&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="s2"> PREFIX etbii:&lt;http://etbii.fr/ontology/&gt;</span>
-<span class="s2">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="s2"> }</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="s2"> &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">17</span> <span class="n">coExNet</span> <span class="o">=</span> <span class="n">KG</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">q2</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="nb">print</span><span class="p">(</span><span class="n">coExNet</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;turtle&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
-
-<span class="nn">File ~/.local/lib/python3.9/site-packages/rdflib/graph.py:1389,</span> in <span class="ni">Graph.query</span><span class="nt">(self, query_object, processor, result, initNs, initBindings, use_store_provided, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1386</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">processor</span><span class="p">,</span> <span class="n">query</span><span class="o">.</span><span class="n">Processor</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1387</span>     <span class="n">processor</span> <span class="o">=</span> <span class="n">plugin</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">processor</span><span class="p">,</span> <span class="n">query</span><span class="o">.</span><span class="n">Processor</span><span class="p">)(</span><span class="bp">self</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1389</span> <span class="k">return</span> <span class="n">result</span><span class="p">(</span><span class="n">processor</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query_object</span><span class="p">,</span> <span class="n">initBindings</span><span class="p">,</span> <span class="n">initNs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
-
-<span class="nn">File ~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/processor.py:77,</span> in <span class="ni">SPARQLProcessor.query</span><span class="nt">(self, strOrQuery, initBindings, initNs, base, DEBUG)</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span><span class="sd"> Evaluate a query with the given initial bindings, and initial</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="sd"> namespaces. The given base is used to resolve relative URIs in</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span><span class="sd"> the query and will be overridden by any BASE given in the query.</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">strOrQuery</span><span class="p">,</span> <span class="n">Query</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">77</span>     <span class="n">parsetree</span> <span class="o">=</span> <span class="n">parseQuery</span><span class="p">(</span><span class="n">strOrQuery</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span>     <span class="n">query</span> <span class="o">=</span> <span class="n">translateQuery</span><span class="p">(</span><span class="n">parsetree</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">initNs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span> <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">File ~/.local/lib/python3.9/site-packages/rdflib/plugins/sparql/parser.py:1536,</span> in <span class="ni">parseQuery</span><span class="nt">(q)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1533</span>     <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1535</span> <span class="n">q</span> <span class="o">=</span> <span class="n">expandUnicodeEscapes</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1536</span> <span class="k">return</span> <span class="n">Query</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">parseAll</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="nn">File /shared/software/miniconda/envs/python-pytorch-tensorflow-3.9-1.11.0-2.6.2/lib/python3.9/site-packages/pyparsing/core.py:1141,</span> in <span class="ni">ParserElement.parse_string</span><span class="nt">(self, instring, parse_all, parseAll)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1138</span>         <span class="k">raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">1139</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1140</span>         <span class="c1"># catch and re-raise exception from here, clearing out pyparsing internal stack trace</span>
-<span class="ne">-&gt; </span><span class="mi">1141</span>         <span class="k">raise</span> <span class="n">exc</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1142</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1143</span>     <span class="k">return</span> <span class="n">tokens</span>
-
-<span class="ne">ParseException</span>: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}, found &#39;gene1&#39;  (at char 160), (line:10, col:5)
 </pre></div>
 </div>
 </div>
