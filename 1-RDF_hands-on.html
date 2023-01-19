@@ -397,11 +397,6 @@ title="Print to PDF"
        Methode 1:
       </a>
      </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#methode-2">
-       Methode 2
-      </a>
-     </li>
     </ul>
    </li>
   </ul>
@@ -525,11 +520,6 @@ title="Print to PDF"
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#methode-1">
        Methode 1:
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#methode-2">
-       Methode 2
       </a>
      </li>
     </ul>
@@ -699,10 +689,26 @@ title="Print to PDF"
 <section id="methode-1">
 <h3>Methode 1:<a class="headerlink" href="#methode-1" title="Permalink to this headline">#</a></h3>
 <p>Go to <a class="reference external" href="https://www.ldf.fi/service/rdf-grapher">https://www.ldf.fi/service/rdf-grapher</a></p>
-<p><img alt="rdf-grapher_q1.png" src="attachment:ce5fcbb9-5dfd-4782-95eb-e148a1f1e553.png" /></p>
-</section>
-<section id="methode-2">
-<h3>Methode 2<a class="headerlink" href="#methode-2" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">![</span>rdf-grapher_q1.png<span class="o">](</span>attachment:836ead6d-42df-4f91-bdb5-a64881708b93.png<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/bin/bash: -c: line 0: syntax error near unexpected token `attachment:836ead6d-42df-4f91-bdb5-a64881708b93.png&#39;
+/bin/bash: -c: line 0: `[rdf-grapher_q1.png](attachment:836ead6d-42df-4f91-bdb5-a64881708b93.png)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Methode 2à</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -767,7 +773,9 @@ Additional features: Optional BGPs, union, filters, aggregate functions, negatio
 <p>We will now use the RDFlib package to parse RDF Data and do some very basic SPARQL queries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># RDF graph, in turtle syntax, stored in a string</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdflib</span> <span class="kn">import</span> <span class="n">Graph</span>
+
+<span class="c1"># RDF graph, in turtle syntax, stored in a string</span>
 <span class="n">my_rdf_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">@prefix ns: &lt;http://my_voc/&gt; .</span>
 <span class="s2">@prefix snp: &lt;http://my_snps/&gt; .</span>
@@ -791,21 +799,17 @@ Additional features: Optional BGPs, union, filters, aggregate functions, negatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">my_rdf_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="s2"> @prefix ns: &lt;http://my_voc/&gt; .</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="s2"> @prefix snp: &lt;http://my_snps/&gt; .</span>
-<span class="s2">   (...)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span><span class="s2"> snp:rs61753123 ns:is_a_variant_of &quot;RAC1&quot; .</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span><span class="s2"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># Initialization of the in-memory RDF graph, RDFlib Graph object</span>
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">kg</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># Parsing of the RDF data</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">kg</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">my_rdf_data</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;turtle&#39;</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the knowledge graph contains 4 triples
 
-<span class="ne">NameError</span>: name &#39;Graph&#39; is not defined
+@prefix ns: &lt;http://my_voc/&gt; .
+@prefix snp: &lt;http://my_snps/&gt; .
+
+snp:123 ns:is_a_variant_of &quot;NEMO&quot; .
+
+snp:rs527330002 ns:is_a_variant_of &quot;RAC1&quot; ;
+    ns:refers_to_organism &lt;http://www.uniprot.org/taxonomy/9606&gt; .
+
+snp:rs61753123 ns:is_a_variant_of &quot;RAC1&quot; .
 </pre></div>
 </div>
 </div>
