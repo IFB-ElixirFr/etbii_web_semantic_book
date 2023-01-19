@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Markdown Files" href="markdown2.html" />
-    <link rel="prev" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
+    <link rel="next" title="Practical introduction to RDF and SPARQL" href="1-RDF_hands-on.html" />
+    <link rel="prev" title="Theory" href="theory.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -120,8 +120,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown-notebooks.html">
-   Notebooks with MyST Markdown
+  <a class="reference internal" href="theory.html">
+   Theory
   </a>
  </li>
 </ul>
@@ -136,16 +136,19 @@ const thebe_selector_output = ".output, .cell_output"
    Software environment setup
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Ressources
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown2.html">
-   Markdown Files
+  <a class="reference internal" href="1-RDF_hands-on.html">
+   Practical introduction to RDF and SPARQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-Life_Science_ontologies_and_Knowledge_Graphs_-_hands_on.html">
+   Life Science ontologies and Knowledge Graphs, HANDS-ON
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-Multi-source_queries.html">
+   Combining graphs from multiple data sources
   </a>
  </li>
 </ul>
@@ -367,25 +370,18 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
-Collecting rdflib
-  Using cached rdflib-6.2.0-py3-none-any.whl (500 kB)
+Requirement already satisfied: rdflib in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (6.2.0)
 Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib) (3.0.9)
-Collecting isodate
-  Using cached isodate-0.6.1-py2.py3-none-any.whl (41 kB)
+Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib) (0.6.1)
 Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib) (65.3.0)
 Requirement already satisfied: six in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from isodate-&gt;rdflib) (1.16.0)
-Installing collected packages: isodate, rdflib
-Successfully installed isodate-0.6.1 rdflib-6.2.0
 Defaulting to user installation because normal site-packages is not writeable
-Collecting sparqlwrapper
-  Using cached SPARQLWrapper-2.0.0-py3-none-any.whl (28 kB)
+Requirement already satisfied: sparqlwrapper in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (2.0.0)
 Requirement already satisfied: rdflib&gt;=6.1.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from sparqlwrapper) (6.2.0)
-Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (3.0.9)
 Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (0.6.1)
 Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (65.3.0)
+Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (3.0.9)
 Requirement already satisfied: six in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from isodate-&gt;rdflib&gt;=6.1.1-&gt;sparqlwrapper) (1.16.0)
-Installing collected packages: sparqlwrapper
-Successfully installed sparqlwrapper-2.0.0
 </pre></div>
 </div>
 </div>
@@ -796,6 +792,13 @@ Successfully installed sparqlwrapper-2.0.0
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdflib</span> <span class="kn">import</span> <span class="n">Graph</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -825,17 +828,17 @@ Successfully installed sparqlwrapper-2.0.0
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="markdown-notebooks.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="theory.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Notebooks with MyST Markdown</p>
+            <p class="prev-next-title">Theory</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="markdown2.html" title="next page">
+    <a class='right-next' id="next-link" href="1-RDF_hands-on.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Markdown Files</p>
+        <p class="prev-next-title">Practical introduction to RDF and SPARQL</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

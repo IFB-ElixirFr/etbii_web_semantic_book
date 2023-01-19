@@ -1,0 +1,147 @@
+Traceback (most recent call last):
+  File "/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+bgee_subgraph = """
+PREFIX orth: <http://purl.org/net/orth#>
+PREFIX genex: <http://purl.org/genex#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+CONSTRUCT {
+   ?seq genex:isExpressedIn ?anatEntity ;
+   rdfs:label ?geneName .
+
+} WHERE {
+    VALUE(?g_label {"""+genes+"""}) .
+
+    ?anatEntity a genex:AnatomicalEntity ;
+                rdfs:label ?anatName .
+    ?organism obo:RO_0002162 <http://purl.uniprot.org/taxonomy/9606> . 
+    ?seq a orth:Gene;
+     orth:organism ?organism ;
+     rdfs:label ?geneName .
+    ?seq genex:isExpressedIn ?anatEntity.
+    FILTER (regex(?anatEntity, "CL_"))
+}
+"""
+sparql = SPARQLWrapper("http://bgee.org/sparql")
+sparql.setQuery(bgee_subgraph)
+results = sparql.query().convert()
+print(len(results))
+#print(results)
+print(results.serialize(format="turtle"))
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mHTTPError[0m                                 Traceback (most recent call last)
+File [0;32m~/.local/lib/python3.10/site-packages/SPARQLWrapper/Wrapper.py:926[0m, in [0;36mSPARQLWrapper._query[0;34m(self)[0m
+[1;32m    925[0m [38;5;28;01melse[39;00m:
+[0;32m--> 926[0m     response [38;5;241m=[39m [43murlopener[49m[43m([49m[43mrequest[49m[43m)[49m
+[1;32m    927[0m [38;5;28;01mreturn[39;00m response, [38;5;28mself[39m[38;5;241m.[39mreturnFormat
+
+File [0;32m/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:216[0m, in [0;36murlopen[0;34m(url, data, timeout, cafile, capath, cadefault, context)[0m
+[1;32m    215[0m     opener [38;5;241m=[39m _opener
+[0;32m--> 216[0m [38;5;28;01mreturn[39;00m [43mopener[49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m[43murl[49m[43m,[49m[43m [49m[43mdata[49m[43m,[49m[43m [49m[43mtimeout[49m[43m)[49m
+
+File [0;32m/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:525[0m, in [0;36mOpenerDirector.open[0;34m(self, fullurl, data, timeout)[0m
+[1;32m    524[0m     meth [38;5;241m=[39m [38;5;28mgetattr[39m(processor, meth_name)
+[0;32m--> 525[0m     response [38;5;241m=[39m [43mmeth[49m[43m([49m[43mreq[49m[43m,[49m[43m [49m[43mresponse[49m[43m)[49m
+[1;32m    527[0m [38;5;28;01mreturn[39;00m response
+
+File [0;32m/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:634[0m, in [0;36mHTTPErrorProcessor.http_response[0;34m(self, request, response)[0m
+[1;32m    633[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ([38;5;241m200[39m [38;5;241m<[39m[38;5;241m=[39m code [38;5;241m<[39m [38;5;241m300[39m):
+[0;32m--> 634[0m     response [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mparent[49m[38;5;241;43m.[39;49m[43merror[49m[43m([49m
+[1;32m    635[0m [43m        [49m[38;5;124;43m'[39;49m[38;5;124;43mhttp[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mrequest[49m[43m,[49m[43m [49m[43mresponse[49m[43m,[49m[43m [49m[43mcode[49m[43m,[49m[43m [49m[43mmsg[49m[43m,[49m[43m [49m[43mhdrs[49m[43m)[49m
+[1;32m    637[0m [38;5;28;01mreturn[39;00m response
+
+File [0;32m/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:557[0m, in [0;36mOpenerDirector.error[0;34m(self, proto, *args)[0m
+[1;32m    556[0m args [38;5;241m=[39m ([38;5;28mdict[39m, proto, meth_name) [38;5;241m+[39m args
+[0;32m--> 557[0m result [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_call_chain[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m
+[1;32m    558[0m [38;5;28;01mif[39;00m result:
+
+File [0;32m/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:496[0m, in [0;36mOpenerDirector._call_chain[0;34m(self, chain, kind, meth_name, *args)[0m
+[1;32m    495[0m func [38;5;241m=[39m [38;5;28mgetattr[39m(handler, meth_name)
+[0;32m--> 496[0m result [38;5;241m=[39m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m
+[1;32m    497[0m [38;5;28;01mif[39;00m result [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+File [0;32m/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:749[0m, in [0;36mHTTPRedirectHandler.http_error_302[0;34m(self, req, fp, code, msg, headers)[0m
+[1;32m    747[0m fp[38;5;241m.[39mclose()
+[0;32m--> 749[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mparent[49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m[43mnew[49m[43m,[49m[43m [49m[43mtimeout[49m[38;5;241;43m=[39;49m[43mreq[49m[38;5;241;43m.[39;49m[43mtimeout[49m[43m)[49m
+
+File [0;32m/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:525[0m, in [0;36mOpenerDirector.open[0;34m(self, fullurl, data, timeout)[0m
+[1;32m    524[0m     meth [38;5;241m=[39m [38;5;28mgetattr[39m(processor, meth_name)
+[0;32m--> 525[0m     response [38;5;241m=[39m [43mmeth[49m[43m([49m[43mreq[49m[43m,[49m[43m [49m[43mresponse[49m[43m)[49m
+[1;32m    527[0m [38;5;28;01mreturn[39;00m response
+
+File [0;32m/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:634[0m, in [0;36mHTTPErrorProcessor.http_response[0;34m(self, request, response)[0m
+[1;32m    633[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ([38;5;241m200[39m [38;5;241m<[39m[38;5;241m=[39m code [38;5;241m<[39m [38;5;241m300[39m):
+[0;32m--> 634[0m     response [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mparent[49m[38;5;241;43m.[39;49m[43merror[49m[43m([49m
+[1;32m    635[0m [43m        [49m[38;5;124;43m'[39;49m[38;5;124;43mhttp[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mrequest[49m[43m,[49m[43m [49m[43mresponse[49m[43m,[49m[43m [49m[43mcode[49m[43m,[49m[43m [49m[43mmsg[49m[43m,[49m[43m [49m[43mhdrs[49m[43m)[49m
+[1;32m    637[0m [38;5;28;01mreturn[39;00m response
+
+File [0;32m/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:563[0m, in [0;36mOpenerDirector.error[0;34m(self, proto, *args)[0m
+[1;32m    562[0m args [38;5;241m=[39m ([38;5;28mdict[39m, [38;5;124m'[39m[38;5;124mdefault[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mhttp_error_default[39m[38;5;124m'[39m) [38;5;241m+[39m orig_args
+[0;32m--> 563[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_call_chain[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m
+
+File [0;32m/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:496[0m, in [0;36mOpenerDirector._call_chain[0;34m(self, chain, kind, meth_name, *args)[0m
+[1;32m    495[0m func [38;5;241m=[39m [38;5;28mgetattr[39m(handler, meth_name)
+[0;32m--> 496[0m result [38;5;241m=[39m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m
+[1;32m    497[0m [38;5;28;01mif[39;00m result [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+File [0;32m/shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:643[0m, in [0;36mHTTPDefaultErrorHandler.http_error_default[0;34m(self, req, fp, code, msg, hdrs)[0m
+[1;32m    642[0m [38;5;28;01mdef[39;00m [38;5;21mhttp_error_default[39m([38;5;28mself[39m, req, fp, code, msg, hdrs):
+[0;32m--> 643[0m     [38;5;28;01mraise[39;00m HTTPError(req[38;5;241m.[39mfull_url, code, msg, hdrs, fp)
+
+[0;31mHTTPError[0m: HTTP Error 400: Bad Request
+
+During handling of the above exception, another exception occurred:
+
+[0;31mQueryBadFormed[0m                            Traceback (most recent call last)
+Cell [0;32mIn[9], line 25[0m
+[1;32m     23[0m sparql [38;5;241m=[39m SPARQLWrapper([38;5;124m"[39m[38;5;124mhttp://bgee.org/sparql[39m[38;5;124m"[39m)
+[1;32m     24[0m sparql[38;5;241m.[39msetQuery(bgee_subgraph)
+[0;32m---> 25[0m results [38;5;241m=[39m [43msparql[49m[38;5;241;43m.[39;49m[43mquery[49m[43m([49m[43m)[49m[38;5;241m.[39mconvert()
+[1;32m     26[0m [38;5;28mprint[39m([38;5;28mlen[39m(results))
+[1;32m     27[0m [38;5;66;03m#print(results)[39;00m
+
+File [0;32m~/.local/lib/python3.10/site-packages/SPARQLWrapper/Wrapper.py:960[0m, in [0;36mSPARQLWrapper.query[0;34m(self)[0m
+[1;32m    942[0m [38;5;28;01mdef[39;00m [38;5;21mquery[39m([38;5;28mself[39m) [38;5;241m-[39m[38;5;241m>[39m [38;5;124m"[39m[38;5;124mQueryResult[39m[38;5;124m"[39m:
+[1;32m    943[0m     [38;5;124;03m"""[39;00m
+[1;32m    944[0m [38;5;124;03m    Execute the query.[39;00m
+[1;32m    945[0m [38;5;124;03m    Exceptions can be raised if either the URI is wrong or the HTTP sends back an error (this is also the[39;00m
+[0;32m   (...)[0m
+[1;32m    958[0m [38;5;124;03m    :rtype: :class:`QueryResult` instance[39;00m
+[1;32m    959[0m [38;5;124;03m    """[39;00m
+[0;32m--> 960[0m     [38;5;28;01mreturn[39;00m QueryResult([38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_query[49m[43m([49m[43m)[49m)
+
+File [0;32m~/.local/lib/python3.10/site-packages/SPARQLWrapper/Wrapper.py:930[0m, in [0;36mSPARQLWrapper._query[0;34m(self)[0m
+[1;32m    928[0m [38;5;28;01mexcept[39;00m urllib[38;5;241m.[39merror[38;5;241m.[39mHTTPError [38;5;28;01mas[39;00m e:
+[1;32m    929[0m     [38;5;28;01mif[39;00m e[38;5;241m.[39mcode [38;5;241m==[39m [38;5;241m400[39m:
+[0;32m--> 930[0m         [38;5;28;01mraise[39;00m QueryBadFormed(e[38;5;241m.[39mread())
+[1;32m    931[0m     [38;5;28;01melif[39;00m e[38;5;241m.[39mcode [38;5;241m==[39m [38;5;241m404[39m:
+[1;32m    932[0m         [38;5;28;01mraise[39;00m EndPointNotFound(e[38;5;241m.[39mread())
+
+[0;31mQueryBadFormed[0m: QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. 
+
+Response:
+b'Virtuoso 37000 Error SP030: SPARQL compiler, line 13: syntax error at \'VALUE\' before \'(\'\n\nSPARQL query:\ndefine sql:big-data-const 0 \n#output-format:application/sparql-results+xml\n\nPREFIX orth: <http://purl.org/net/orth#>\nPREFIX genex: <http://purl.org/genex#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\n\nCONSTRUCT {\n   ?seq genex:isExpressedIn ?anatEntity ;\n   rdfs:label ?geneName .\n\n} WHERE {\n    VALUE(?g_label {"SCN5A"}) .\n\n    ?anatEntity a genex:AnatomicalEntity ;\n                rdfs:label ?anatName .\n    ?organism obo:RO_0002162 <http://purl.uniprot.org/taxonomy/9606> . \n    ?seq a orth:Gene;\n     orth:organism ?organism ;\n     rdfs:label ?geneName .\n    ?seq genex:isExpressedIn ?anatEntity.\n    FILTER (regex(?anatEntity, "CL_"))\n}\n'
+QueryBadFormed: QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. 
+
+Response:
+b'Virtuoso 37000 Error SP030: SPARQL compiler, line 13: syntax error at \'VALUE\' before \'(\'\n\nSPARQL query:\ndefine sql:big-data-const 0 \n#output-format:application/sparql-results+xml\n\nPREFIX orth: <http://purl.org/net/orth#>\nPREFIX genex: <http://purl.org/genex#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\n\nCONSTRUCT {\n   ?seq genex:isExpressedIn ?anatEntity ;\n   rdfs:label ?geneName .\n\n} WHERE {\n    VALUE(?g_label {"SCN5A"}) .\n\n    ?anatEntity a genex:AnatomicalEntity ;\n                rdfs:label ?anatName .\n    ?organism obo:RO_0002162 <http://purl.uniprot.org/taxonomy/9606> . \n    ?seq a orth:Gene;\n     orth:organism ?organism ;\n     rdfs:label ?geneName .\n    ?seq genex:isExpressedIn ?anatEntity.\n    FILTER (regex(?anatEntity, "CL_"))\n}\n'
+
