@@ -1,11 +1,9 @@
-# Welcome to your Jupyter Book
+# Welcome to the web semantic introduction
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+This jupyter book is an introduction to the web semantic with diffrent examples and exercises. 
 
-Check out the content pages bundled with this sample book to see more.
+[DOI](https://doi.org/10.5281/zenodo.7550601)
+
 
 ```{tableofcontents}
 ```
