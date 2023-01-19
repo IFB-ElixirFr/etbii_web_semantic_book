@@ -5,7 +5,9 @@ Book of ETBII web semantic session
 - [Book website](https://ifb-elixirfr.github.io/etbii_web_semantic_book/intro.html) 
 - [Part of ETBII](https://moodle.france-bioinformatique.fr/course/view.php?id=13) 
 
-To do : DOI 
+Licence
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7550601.svg)](https://doi.org/10.5281/zenodo.7550601)
 
 ## :hammer: Build the book 
 
