@@ -51,7 +51,7 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Practical introduction to RDF and SPARQL" href="1-RDF_hands-on.html" />
@@ -151,6 +151,23 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="3-Multi-source_queries.html">
    Combining graphs from multiple data sources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-Display_graph.html">
+   Use cytoscape
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ressources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
   </a>
  </li>
 </ul>
@@ -373,16 +390,16 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: rdflib in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (6.2.0)
-Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib) (3.0.9)
 Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib) (0.6.1)
 Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib) (65.3.0)
+Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib) (3.0.9)
 Requirement already satisfied: six in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from isodate-&gt;rdflib) (1.16.0)
 Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: sparqlwrapper in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (2.0.0)
 Requirement already satisfied: rdflib&gt;=6.1.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from sparqlwrapper) (6.2.0)
+Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (3.0.9)
 Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (0.6.1)
 Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (65.3.0)
-Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (3.0.9)
 Requirement already satisfied: six in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from isodate-&gt;rdflib&gt;=6.1.1-&gt;sparqlwrapper) (1.16.0)
 </pre></div>
 </div>
