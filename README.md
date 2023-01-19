@@ -7,14 +7,14 @@ Book of ETBII web semantic session
 
 To do : DOI 
 
-## Build the book 
+## :hammer: Build the book 
 
 ```bash 
 module load jupyter-book
 jupyter-book build docs/
 ```
 
-## Shared the book 
+## :twisted_rightwards_arrows: Shared the book 
 
 ```bash 
 # Install package
@@ -24,11 +24,11 @@ pip install ghp-import
 ghp-import -n -p -f docs/_build/html
 ```
 
-## How to contribute ?
+## :pencil: How to contribute ?
 
 To do 
 
-## Ressources 
+## :blue_book: Ressources 
 
 - [Create your first Jupyter Book](https://github.com/IFB-ElixirFr/jupyterBook-demo)
 - [Official documentation](https://jupyterbook.org/en/stable/intro.html)
