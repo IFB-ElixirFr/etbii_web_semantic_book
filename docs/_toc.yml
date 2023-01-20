@@ -15,6 +15,6 @@ parts:
         - file: 3-Multi-source_queries
         - file: 4-Display_graph
         - file: 5-Quiz
-  - caption: Ressources
+  - caption: Resources
     chapters:
         - file: genindex

@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Web semantic
+title: Semantic web
 author: Alban Gaignard, Olivier Dameron, Imane Messak et Thomas Denecker
 logo: logo.png
 copyright: "2023" 
