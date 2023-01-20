@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Use cytoscape" href="4-Display_graph.html" />
@@ -154,6 +156,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="4-Display_graph.html">
    Use cytoscape
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5-Quiz.html">
+   Summmary quiz
   </a>
  </li>
 </ul>
@@ -490,16 +497,16 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: rdflib in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (6.2.0)
-Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib) (65.3.0)
-Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib) (0.6.1)
 Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib) (3.0.9)
+Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib) (0.6.1)
+Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib) (65.3.0)
 Requirement already satisfied: six in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from isodate-&gt;rdflib) (1.16.0)
 Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: sparqlwrapper in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (2.0.0)
 Requirement already satisfied: rdflib&gt;=6.1.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from sparqlwrapper) (6.2.0)
-Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (65.3.0)
-Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (0.6.1)
 Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (3.0.9)
+Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (0.6.1)
+Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (65.3.0)
 Requirement already satisfied: six in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from isodate-&gt;rdflib&gt;=6.1.1-&gt;sparqlwrapper) (1.16.0)
 </pre></div>
 </div>
@@ -608,15 +615,15 @@ FILTER (?P2 != ?P1)
 Requirement already satisfied: networkx in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (3.0)
 Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: matplotlib in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (3.6.3)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.0.7)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from matplotlib) (3.0.9)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (4.38.0)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from matplotlib) (2.8.2)
 Requirement already satisfied: packaging&gt;=20.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from matplotlib) (21.3)
 Requirement already satisfied: cycler&gt;=0.10 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (0.11.0)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.0.7)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from matplotlib) (2.8.2)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from matplotlib) (3.0.9)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.4.4)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (4.38.0)
-Requirement already satisfied: pillow&gt;=6.2.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (9.4.0)
 Requirement already satisfied: numpy&gt;=1.19 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.24.1)
+Requirement already satisfied: pillow&gt;=6.2.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (9.4.0)
 Requirement already satisfied: six&gt;=1.5 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
 Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: scipy in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (1.10.0)
