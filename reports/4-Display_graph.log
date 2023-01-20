@@ -17,25 +17,19 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-query = """
-
-"""
-sparql = SPARQLWrapper("http://134.214.213.234/sparql")
-sparql.setQuery(query)
-results = sparql.queryAndConvert()
-print(results.serialize(format="turtle"))
+nodes = []
+edges = {}
+# { 'data': { 'id': 'desktop', 'name': 'Cytoscape', 'href': 'http://cytoscape.org' } },
+for r in results['results']['bindings']:
+    nodes.append({
+        'id' : 
+    })
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn [4], line 4[0m
-[1;32m      1[0m query [38;5;241m=[39m [38;5;124m"""[39m
-[1;32m      2[0m 
-[1;32m      3[0m [38;5;124m"""[39m
-[0;32m----> 4[0m sparql [38;5;241m=[39m [43mSPARQLWrapper[49m([38;5;124m"[39m[38;5;124mhttp://134.214.213.234/sparql[39m[38;5;124m"[39m)
-[1;32m      5[0m sparql[38;5;241m.[39msetQuery(query)
-[1;32m      6[0m results [38;5;241m=[39m sparql[38;5;241m.[39mqueryAndConvert()
+[0;36m  Cell [0;32mIn [4], line 6[0;36m[0m
+[0;31m    'id' :[0m
+[0m         ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m expression expected after dictionary key and ':'
 
-[0;31mNameError[0m: name 'SPARQLWrapper' is not defined
-NameError: name 'SPARQLWrapper' is not defined
+SyntaxError: expression expected after dictionary key and ':' (2524510273.py, line 6)
 
