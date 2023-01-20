@@ -1,0 +1,71 @@
+[
+    {
+        "question": "The Semantic Web ... ",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "... is an advanced search technology",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "... is an advanced search technology",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "... visualizes things and how they are related to each other",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "... refers to W3C’s vision of the Web of linked data",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "... is a knowledge base which is open for anybody under a CC-BY license",
+                "correct": false,
+                "feedback": "I hope not."
+            }
+        ]
+    },
+    {
+        "question": "What means 'RDF'? ",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Rich Text Format",
+                "correct": false,
+                "feedback": "False."
+            },
+            {
+                "answer": "Resource Description Format",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Resource Description Framework",
+                "correct": false,
+                "feedback": "False."
+            }
+        ]
+    },
+
+    {
+        "question": "SPARQL property paths add the ability to match connectivity of two resources by an arbitrary length path ",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "True",
+                "correct": false,
+                "feedback": "False."
+            },
+            {
+                "answer": "False",
+                "correct": true,
+                "feedback": "Correct."
+            }
+        ]
+    }
+]

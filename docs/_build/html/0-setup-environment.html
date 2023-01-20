@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Software environment setup &#8212; Web semantic</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Practical introduction to RDF and SPARQL" href="1-RDF_hands-on.html" />
+    <link rel="prev" title="Theory" href="theory.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">Work in progress</div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Web semantic</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the web semantic introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Theory
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="theory.html">
+   Theory
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Pratice
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Software environment setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-RDF_hands-on.html">
+   Practical introduction to RDF and SPARQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-Life_Science_ontologies_and_Knowledge_Graphs_-_hands_on.html">
+   Life Science ontologies and Knowledge Graphs, HANDS-ON
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-Multi-source_queries.html">
+   Combining graphs from multiple data sources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-Display_graph.html">
+   Use cytoscape
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ressources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/IFB-ElixirFr/etbii_web_semantic_book/main?urlpath=tree/docs/0-setup-environment.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/IFB-ElixirFr/etbii_web_semantic_book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/IFB-ElixirFr/etbii_web_semantic_book/issues/new?title=Issue%20on%20page%20%2F0-setup-environment.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/0-setup-environment.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Software environment setup</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="software-environment-setup">
+<h1>Software environment setup<a class="headerlink" href="#software-environment-setup" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install rdflib
+<span class="o">!</span>pip install sparqlwrapper
+<span class="o">!</span>pip install ipycytoscape
+<span class="o">!</span>pip install ipywidgets
+<span class="o">!</span>pip install ipywidgets --upgrade
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: rdflib in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (6.2.0)
+Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib) (65.3.0)
+Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib) (0.6.1)
+Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib) (3.0.9)
+Requirement already satisfied: six in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from isodate-&gt;rdflib) (1.16.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: sparqlwrapper in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (2.0.0)
+Requirement already satisfied: rdflib&gt;=6.1.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from sparqlwrapper) (6.2.0)
+Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (65.3.0)
+Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (3.0.9)
+Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (0.6.1)
+Requirement already satisfied: six in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from isodate-&gt;rdflib&gt;=6.1.1-&gt;sparqlwrapper) (1.16.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: ipycytoscape in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (1.3.3)
+Requirement already satisfied: spectate&gt;=1.0.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipycytoscape) (1.0.1)
+Requirement already satisfied: ipywidgets&gt;=7.6.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipycytoscape) (8.0.4)
+Requirement already satisfied: ipykernel&gt;=4.5.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (6.20.2)
+Requirement already satisfied: widgetsnbextension~=4.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (4.0.5)
+Requirement already satisfied: jupyterlab-widgets~=3.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (3.0.5)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (5.4.0)
+Requirement already satisfied: ipython&gt;=6.1.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (8.8.0)
+Requirement already satisfied: nest-asyncio in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (1.5.5)
+Requirement already satisfied: comm&gt;=0.1.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (0.1.2)
+Requirement already satisfied: matplotlib-inline&gt;=0.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (0.1.6)
+Requirement already satisfied: jupyter-client&gt;=6.1.12 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (7.3.5)
+Requirement already satisfied: packaging in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (21.3)
+Requirement already satisfied: tornado&gt;=6.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (6.2)
+Requirement already satisfied: pyzmq&gt;=17 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (24.0.1)
+Requirement already satisfied: debugpy&gt;=1.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (1.6.3)
+Requirement already satisfied: psutil in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (5.9.2)
+Requirement already satisfied: decorator in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (5.1.1)
+Requirement already satisfied: pickleshare in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (0.7.5)
+Requirement already satisfied: pygments&gt;=2.4.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (2.13.0)
+Requirement already satisfied: pexpect&gt;4.3 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (4.8.0)
+Requirement already satisfied: stack-data in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (0.5.0)
+Requirement already satisfied: jedi&gt;=0.16 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (0.18.1)
+Requirement already satisfied: prompt-toolkit&lt;3.1.0,&gt;=3.0.11 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (3.0.31)
+Requirement already satisfied: backcall in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (0.2.0)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (0.8.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (2.8.2)
+Requirement already satisfied: jupyter-core&gt;=4.9.2 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (4.11.1)
+Requirement already satisfied: entrypoints in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (0.4)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (0.7.0)
+Requirement already satisfied: wcwidth in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.11-&gt;ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (0.2.5)
+Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from packaging-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (3.0.9)
+Requirement already satisfied: pure-eval in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from stack-data-&gt;ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (0.2.2)
+Requirement already satisfied: executing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from stack-data-&gt;ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (1.0.0)
+Requirement already satisfied: asttokens in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from stack-data-&gt;ipython&gt;=6.1.0-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (2.0.8)
+Requirement already satisfied: six&gt;=1.5 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from python-dateutil&gt;=2.8.2-&gt;jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.6.0-&gt;ipycytoscape) (1.16.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: ipywidgets in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (8.0.4)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipywidgets) (5.4.0)
+Requirement already satisfied: ipykernel&gt;=4.5.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipywidgets) (6.20.2)
+Requirement already satisfied: widgetsnbextension~=4.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipywidgets) (4.0.5)
+Requirement already satisfied: ipython&gt;=6.1.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipywidgets) (8.8.0)
+Requirement already satisfied: jupyterlab-widgets~=3.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipywidgets) (3.0.5)
+Requirement already satisfied: nest-asyncio in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (1.5.5)
+Requirement already satisfied: psutil in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (5.9.2)
+Requirement already satisfied: pyzmq&gt;=17 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (24.0.1)
+Requirement already satisfied: matplotlib-inline&gt;=0.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (0.1.6)
+Requirement already satisfied: comm&gt;=0.1.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (0.1.2)
+Requirement already satisfied: debugpy&gt;=1.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (1.6.3)
+Requirement already satisfied: tornado&gt;=6.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (6.2)
+Requirement already satisfied: packaging in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (21.3)
+Requirement already satisfied: jupyter-client&gt;=6.1.12 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (7.3.5)
+Requirement already satisfied: decorator in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (5.1.1)
+Requirement already satisfied: pygments&gt;=2.4.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (2.13.0)
+Requirement already satisfied: pickleshare in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (0.7.5)
+Requirement already satisfied: pexpect&gt;4.3 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (4.8.0)
+Requirement already satisfied: stack-data in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (0.5.0)
+Requirement already satisfied: prompt-toolkit&lt;3.1.0,&gt;=3.0.11 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (3.0.31)
+Requirement already satisfied: backcall in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (0.2.0)
+Requirement already satisfied: jedi&gt;=0.16 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (0.18.1)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=6.1.0-&gt;ipywidgets) (0.8.3)
+Requirement already satisfied: jupyter-core&gt;=4.9.2 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (4.11.1)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (2.8.2)
+Requirement already satisfied: entrypoints in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (0.4)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=6.1.0-&gt;ipywidgets) (0.7.0)
+Requirement already satisfied: wcwidth in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.11-&gt;ipython&gt;=6.1.0-&gt;ipywidgets) (0.2.5)
+Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from packaging-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (3.0.9)
+Requirement already satisfied: asttokens in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from stack-data-&gt;ipython&gt;=6.1.0-&gt;ipywidgets) (2.0.8)
+Requirement already satisfied: executing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from stack-data-&gt;ipython&gt;=6.1.0-&gt;ipywidgets) (1.0.0)
+Requirement already satisfied: pure-eval in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from stack-data-&gt;ipython&gt;=6.1.0-&gt;ipywidgets) (0.2.2)
+Requirement already satisfied: six&gt;=1.5 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from python-dateutil&gt;=2.8.2-&gt;jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (1.16.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: ipywidgets in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (8.0.4)
+Requirement already satisfied: widgetsnbextension~=4.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipywidgets) (4.0.5)
+Requirement already satisfied: ipykernel&gt;=4.5.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipywidgets) (6.20.2)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipywidgets) (5.4.0)
+Requirement already satisfied: jupyterlab-widgets~=3.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipywidgets) (3.0.5)
+Requirement already satisfied: ipython&gt;=6.1.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipywidgets) (8.8.0)
+Requirement already satisfied: packaging in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (21.3)
+Requirement already satisfied: debugpy&gt;=1.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (1.6.3)
+Requirement already satisfied: tornado&gt;=6.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (6.2)
+Requirement already satisfied: jupyter-client&gt;=6.1.12 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (7.3.5)
+Requirement already satisfied: matplotlib-inline&gt;=0.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (0.1.6)
+Requirement already satisfied: nest-asyncio in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (1.5.5)
+Requirement already satisfied: pyzmq&gt;=17 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (24.0.1)
+Requirement already satisfied: psutil in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (5.9.2)
+Requirement already satisfied: comm&gt;=0.1.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (0.1.2)
+Requirement already satisfied: prompt-toolkit&lt;3.1.0,&gt;=3.0.11 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (3.0.31)
+Requirement already satisfied: pickleshare in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (0.7.5)
+Requirement already satisfied: backcall in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (0.2.0)
+Requirement already satisfied: jedi&gt;=0.16 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (0.18.1)
+Requirement already satisfied: pygments&gt;=2.4.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (2.13.0)
+Requirement already satisfied: pexpect&gt;4.3 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (4.8.0)
+Requirement already satisfied: stack-data in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (0.5.0)
+Requirement already satisfied: decorator in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from ipython&gt;=6.1.0-&gt;ipywidgets) (5.1.1)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=6.1.0-&gt;ipywidgets) (0.8.3)
+Requirement already satisfied: entrypoints in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (0.4)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (2.8.2)
+Requirement already satisfied: jupyter-core&gt;=4.9.2 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (4.11.1)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=6.1.0-&gt;ipywidgets) (0.7.0)
+Requirement already satisfied: wcwidth in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.11-&gt;ipython&gt;=6.1.0-&gt;ipywidgets) (0.2.5)
+Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from packaging-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (3.0.9)
+Requirement already satisfied: pure-eval in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from stack-data-&gt;ipython&gt;=6.1.0-&gt;ipywidgets) (0.2.2)
+Requirement already satisfied: executing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from stack-data-&gt;ipython&gt;=6.1.0-&gt;ipywidgets) (1.0.0)
+Requirement already satisfied: asttokens in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from stack-data-&gt;ipython&gt;=6.1.0-&gt;ipywidgets) (2.0.8)
+Requirement already satisfied: six&gt;=1.5 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from python-dateutil&gt;=2.8.2-&gt;jupyter-client&gt;=6.1.12-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (1.16.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>  
+<span class="o">!{</span>sys.executable<span class="o">}</span> -m pip install --user jupyterquiz
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jupyterquiz in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (2.0.7)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">rdflib</span>
+    <span class="kn">from</span> <span class="nn">SPARQLWrapper</span> <span class="kn">import</span> <span class="n">SPARQLWrapper</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="n">e</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">SPARQLWrapper</span> <span class="kn">import</span> <span class="n">SPARQLWrapper</span>
+
+<span class="n">sparql</span> <span class="o">=</span> <span class="n">SPARQLWrapper</span><span class="p">(</span><span class="s2">&quot;http://dbpedia.org/sparql&quot;</span><span class="p">)</span>
+<span class="n">sparql</span><span class="o">.</span><span class="n">setQuery</span><span class="p">(</span><span class="s2">&quot;DESCRIBE &lt;http://dbpedia.org/resource/Porquerolles&gt;&quot;</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">sparql</span><span class="o">.</span><span class="n">queryAndConvert</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;turtle&quot;</span><span class="p">))</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>@prefix dbo: &lt;http://dbpedia.org/ontology/&gt; .
+@prefix dbp: &lt;http://dbpedia.org/property/&gt; .
+@prefix dct: &lt;http://purl.org/dc/terms/&gt; .
+@prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+@prefix geo: &lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt; .
+@prefix georss: &lt;http://www.georss.org/georss/&gt; .
+@prefix gold: &lt;http://purl.org/linguistics/gold/&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix schema: &lt;http://schema.org/&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+&lt;http://dbpedia.org/resource/Albert_Plécy&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Alphabet_Fleet&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Castel_Sainte-Claire&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Charles_de_Vintimille&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Conservatoire_national_des_arts_et_métiers&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Djidjelli_expedition&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Ducks_Scéno&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Evan_Thomas,_Radcliffe_and_Company&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Fondation_Carmignac&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/French_Riviera&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/French_battleship_Brennus&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/French_battleship_Démocratie&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/French_battleship_Justice&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/French_battleship_Vérité&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/French_cruiser_Jurien_de_la_Gravière&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/French_ironclad_Tempête&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/HMS_Ramillies_(07)&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Henri_Vidal_(engineer)&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Hyères&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Ile_de_Porquerolles&gt; dbo:wikiPageRedirects &lt;http://dbpedia.org/resource/Porquerolles&gt; ;
+    dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/International_Colloquium_on_Structural_Information_and_Communication_Complexity&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Jacques_d&#39;Adelswärd-Fersen&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_battleships_of_France&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_botanical_gardens_in_France&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_islands_in_the_Mediterranean&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_islands_of_France&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_shipwrecks_in_1928&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_shipwrecks_in_August_1916&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_shipwrecks_in_August_1917&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_shipwrecks_in_February_1850&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_shipwrecks_in_February_1916&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_shipwrecks_in_February_1918&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_shipwrecks_in_June_1916&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_shipwrecks_in_March_1918&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_shipwrecks_in_September_1876&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/List_of_windmills_in_France&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Louis_XV&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Michel_Sarran&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Ned_Chaillet&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Pierre_Meillassoux&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Provence&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Roger_Meï&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/SS_Sagona&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Tanya_Holland&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Timeline_of_Eastern_Orthodoxy_in_Greece_(1974–2008)&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Tropical_Storm_Rolf&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/USS_Eberle_(DD-430)&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/USS_Kasaan_Bay&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/USS_Omaha_(CL-4)&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Utile_(1784_ship)&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Édouard_Carmignac&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Île_de_Porquerolles&gt; dbo:wikiPageRedirects &lt;http://dbpedia.org/resource/Porquerolles&gt; ;
+    dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Conservatoire_botanique_national_méditerranéen_de_Porquerolles&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/François_Joseph_Fournier&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Port-Cros_National_Park&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Var_(department)&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Îles_d&#39;Hyères&gt; dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://en.wikipedia.org/wiki/Porquerolles&gt; foaf:primaryTopic &lt;http://dbpedia.org/resource/Porquerolles&gt; .
+
+&lt;http://dbpedia.org/resource/Porquerolles&gt; a &lt;http://dbpedia.org/class/yago/GeographicalArea108574314&gt;,
+        &lt;http://dbpedia.org/class/yago/Island109316454&gt;,
+        &lt;http://dbpedia.org/class/yago/Land109334396&gt;,
+        &lt;http://dbpedia.org/class/yago/Location100027167&gt;,
+        &lt;http://dbpedia.org/class/yago/Object100002684&gt;,
+        &lt;http://dbpedia.org/class/yago/PhysicalEntity100001930&gt;,
+        &lt;http://dbpedia.org/class/yago/Region108630985&gt;,
+        &lt;http://dbpedia.org/class/yago/Site108651247&gt;,
+        &lt;http://dbpedia.org/class/yago/Tract108673395&gt;,
+        &lt;http://dbpedia.org/class/yago/WikicatIslandsOfFrance&gt;,
+        &lt;http://dbpedia.org/class/yago/WikicatPopulatedPlacesEstablishedIn1820&gt;,
+        &lt;http://dbpedia.org/class/yago/YagoGeoEntity&gt;,
+        &lt;http://dbpedia.org/class/yago/YagoLegalActorGeo&gt;,
+        &lt;http://dbpedia.org/class/yago/YagoPermanentlyLocatedEntity&gt;,
+        dbo:Island,
+        owl:Thing,
+        geo:SpatialThing ;
+    rdfs:label &quot;Pòrcaròlas&quot;@ca,
+        &quot;Porquerolles&quot;@de,
+        &quot;Πορκερόλ&quot;@el,
+        &quot;Porquerolles&quot;@en,
+        &quot;Porquerolles&quot;@es,
+        &quot;Porquerolles&quot;@eu,
+        &quot;Île de Porquerolles&quot;@fr,
+        &quot;Porquerolles&quot;@it,
+        &quot;Porquerolles&quot;@nl,
+        &quot;Île de Porquerolles&quot;@pl,
+        &quot;Porquerolles&quot;@pt,
+        &quot;Поркероль&quot;@ru,
+        &quot;Поркероль&quot;@uk,
+        &quot;波克羅勒島&quot;@zh ;
+    dbo:abstract &quot;L&#39;illa de Pòrcaròlas (en occità, l&#39;iscla de Pòrcaròlas) és una illa part de l&#39;arxipèlag de les illes d&#39;Or de Ieras, al Var, a la Provença, al sud-est de França. La seva població és de 257 habitants (2012) i ocupa 1.254 hectàrees (12,54 quilòmetres quadrats i 4,84 milles quadrades). Pòrcaròlas és la major i més occidental de les tres illes ierenques. Té uns 7 km (4,3 milles) de llarg per 3 km (1,9 milles) d&#39;ample, amb cinc petits sistemes dels turons. La costa sud està plena de penya-segats, i a la costa nord es troben el port i les platges de Nòstra Sinhòra, de la Cortada i d&#39;Argent.&quot;@ca,
+        &quot;Die Île de Porquerolles ist die größte Insel der Inselgruppe von Hyères (Îles d’Hyères bzw. Îles d’or). Sie liegt vor der französischen Mittelmeerküste im Bereich der Côte d’Azur in der Nähe von Toulon. Porquerolles ist von der Halbinsel Giens und anderen naheliegenden Häfen in wenigen Minuten mit dem Schiff zu erreichen. Die Insel hat eine Größe von 1254 ha und liegt auf der gleichen geografischen Breite wie das Cap Corse. Hieraus ergibt sich ein besonders südliches Klima. Die Insel ist ca. 7,5 km lang und ca. 3 km breit. Die Küste ist rund 30 km lang. Die höchste Erhebung misst 142 m. An der Nordseite der Insel befindet sich ein kleiner Hafen und der Inselort (ca. 350 Einwohner) mit Restaurants und Geschäften. Die Kirche stammt aus den Jahren 1849–1851. Ebenfalls an der Nordseite der Insel befinden sich einige schöne Sandstrände: die Plage d&#39;Argent im Westen, die Plage de la Courtade an der Ostseite des Ortes und die Plage de Notre-Dame ganz im Osten der Insel. Die Südküste ist zum Baden eher ungeeignet, da das Ufer steil abfällt. An der Südspitze, dem Cap d&#39;Arme, befindet sich ein alter Leuchtturm. vergrößern und Informationen zum Bild anzeigenPanoramaansicht: Plage de la Courtade, östlich des Hafens von Porquerolles Besiedelt wurde die Insel durch ehemalige Soldaten Napoleons III. Im 20. Jahrhundert, bis Ende der 1930er Jahre, gehörte die gesamte Insel dann dem belgischen Ingenieur . Er schenkte sie seiner Frau zur Hochzeit. Fournier war mit dem Fund von Gold- und Silberminen in Mexiko zu Wohlstand gekommen, wollte, dass die Insel autark sein sollte, baute ein Kraftwerk, siedelte Handwerker aller Art auf der Insel an und gründete Schulen für ihre Kinder. 1971 überzeugte Madame Pompidou ihren Mann, den französischen Staatspräsidenten Georges Pompidou, die Insel von den Töchtern Fourniers im Namen des Staates zu kaufen. Sie wurde unter den Schutz des Nationalparks Port-Cros und des staatlichen Instituts für Meeresbotanik (Conservatoire Botanique National Méditerranéen de Porquerolles) gestellt. Die Insel hat daher trotz der besonders im Sommer täglich auf sie anstürmenden Touristenströme (auf jeden der Inseleinwohner kommen bis zu 30 Festlandbesucher) ihren ursprünglichen Charme bewahrt. Zum Schutz vor der unkontrollierten Ausbreitung von Waldbränden wurde ein Streifen Land gerodet und an einen elsässischen Winzer zur Anpflanzung von Reben verpachtet. Der aus diesen Reben gekelterte Domaine de la Courtade genießt mittlerweile einen ausgezeichneten Ruf. An die bewegte Vergangenheit der Insel erinnern einige über die Insel verstreute Befestigungsanlagen. Das über dem Inselort thronende Fort Sainte-Agathe kann von Juni bis September besichtigt werden. Hier werden unter anderem zahlreiche antike Fundstücke vom Meeresgrund gezeigt. Jährlich im Juli finden dort an fünf aufeinander folgenden Tagen das Konzertprogramm des Musikfestivals Jazz à Porquerolles statt. Die Romane Mein Freund Maigret (Originaltitel: Mon ami Maigret) und Die Ferien des Monsieur Mahé (Originaltitel: Le cercle des Mahé) von Georges Simenon spielen auf der Insel.&quot;@de,
+        &quot;Το Πορκερόλ (γαλ. Porquerolles) είναι το δεύτερο μεγαλύτερο νησί της Γαλλίας στη Μεσόγειο θάλασσα και το ένατο μεγαλύτερο νησί της Γαλλίας (δεν υπολογίζονται οι γαλλικές υπερπόντιες περιοχές), μετά την Κορσική, το Ολερόν, το Μπελ Ιλ αν Μερ, το Ιλ ντε Ρε, το Νουαρμουτιέ, το Ιλ ντ Ιε, το Ουεσάν και το Γκρουά. Έχει έκταση 12,54 τ. χλμ. και έχει 200 κατοίκους (2004). Το Πορκερόλ είναι το μεγαλύτερο και δυτικότερο από τα τέσσερα (ή Χρυσά Νησιά). Έχει μήκος 7 χιλιόμετρα και 3 χιλιόμετρα πλάτος, ενώ σε αυτό βρίσκονται και πέντε μικροί λόφοι. Το χωριό του νησιού ιδρύθηκε το 1820, ενώ το 1837 χτίστηκε φάρος και το 1850 μία εκκλησία.&quot;@el,
+        &quot;Porquerolles (French pronunciation: ​[pɔʁkəʁɔl]), also known as the Île de Porquerolles, is an island in the Îles d&#39;Hyères, Var, Provence-Alpes-Côte d&#39;Azur, France. Its land area is 1,254 hectares (12.54 km2; 4.84 sq mi) and in 2004 its population was about 200. Porquerolles is the largest, most westerly of the three Îles d&#39;Hyères. It is about 7 km (4.3 miles) long by 3 km (1.9 miles) wide, with five small ranges of hills. The south coast is lined with cliffs, and on the north coast are the port and the beaches of Notre Dame, La Courtade and Plage d&#39;Argent.&quot;@en,
+        &quot;Isla de Porquerolles (en francés: Île de Porquerolles)​ es una isla parte del archipiélago de las Îles d&#39;Hyères, en Var, en la región de Provenza-Alpes-Costa Azul, al sureste del país europeo de Francia. Su población era de unos 200 habitantes en 2004 y ocupa 12,54 kilómetros cuadrados. Porquerolles es la mayor y más occidental de las tres islas en las Îles d&#39;Hyères. Posee unos 7 km de largo por 3 km de ancho, con cinco pequeños sistemas de las colinas. La costa sur está llena de acantilados, y en la costa norte se encuentran el puerto y las playas de Notre Dame, La Courtade, y Plage d&#39;Argent.&quot;@es,
+        &quot;Porquerolles (pɔʁkəʁɔl ahoskatua) Frantziako uhartea da, Hyères uhartedian handiena dena. Uharteak 12,54 km²-ko azalera du eta 2004an 200 biztanle zituen. Hegoaldeko kostaldea labarrez beteta dago, eta iparraldeko kostaldean portua eta Notre Dame, La Courtade eta Plage d &#39;Argent hondartzak daude.&quot;@eu,
+        &quot;L’île de Porquerolles est la plus grande et la plus occidentale des trois îles d&#39;Hyères avec ses 12,54 km2 de superficie. Elle se situe à 2,6 km au sud-est de la Tour Fondue, l&#39;extrémité sud de la presqu&#39;île de Giens, et à 9,6 km à l&#39;ouest de l&#39;île de Port-Cros. Elle forme un arc orienté est-ouest, aux bords découpés, de 7,5 km de long sur 3 km de large. Son pourtour est d’une trentaine de kilomètres. L’île culmine au sémaphore à 142 m. Elle doit son état de conservation au fait qu&#39;elle est propriété de l&#39;État français depuis 1971 et bénéficie du statut de « parc national » depuis 2012.&quot;@fr,
+        &quot;Porquerolles (in occitano Porcairòla) è l&#39;isola più grande e la più occidentale del piccolo arcipelago delle Isole di Hyères, in Provenza (Francia). La superficie di 1254 ettari ne fa la seconda isola mediterranea della Francia dopo la Corsica, con una lunghezza di circa 7,5 km e una larghezza di 3 km. Lo sviluppo costiero è di circa 30 chilometri. Possiede cinque piccole catene montuose e la costa meridionale è composta da ripide scogliere, mentre a nord si trovano il porto e spiagge di sabbia coperte di pini, erica e mirto – le più note sono le spiagge di Notre Dame, La Courtade e Plage d&#39;Argent. Il villaggio di Porquerolles, con un piccolo porto, ha dato il nome a tutta l&#39;isola ed è abitato da circa 200 persone che vivono quasi essenzialmente di turismo. Il villaggio fu fondato nel 1820 e la chiesa nel 1850. Tutta l&#39;isola fu acquistata nel 1912 dall&#39;imprenditore belga François Joseph Fournier, apparentemente come regalo di nozze per la moglie; fece piantare 500 acri di vigneti che produssero uno dei primi vini provenzali chiamati vin des Côtes de Provence. Le principali attività turistiche sono le escursioni a piedi o in mountain bike, le spiagge e le immersioni subacquee. Nel punto più alto dell&#39;isola, a 142 metri di altezza, nel 1837 è stato costruito un faro. Nel 1971 lo Stato francese ha acquistato l&#39;80 per cento dell&#39;isola per proteggerla dallo sviluppo. Gran parte dell&#39;isola fa ora parte di un parco nazionale (il Parco nazionale di Port-Cros) ed è una zona ecologica di salvaguardia della natura (Conservatoire botanique national méditerranéen de Porquerolles). Il romanzo Il mio amico Maigret del 1955 è ambientato a Porquerolles.&quot;@it,
+        &quot;Het eiland Porquerolles is het grootste en meest westelijke van de Zuid-Franse eilandengroep Îles d&#39;Hyères. Het eiland is ongeveer 7,5 kilometer lang, 3 kilometer breed en heeft een oppervlakte van 1.254 hectare. De zuidkust is heuvelachtig met kliffen. De noordkust heeft lange stranden. Het hoogste punt ligt op 142 meter. Het eiland werd verdedigd door verschillende forten: het in het westen, het in het oosten en het (16e eeuw) boven de haven van Porquerolles. Het eiland was van 1912 tot 1935 privébezit van de Belgische ondernemer François-Joseph Fournier. Hij liet het eiland, dat getroffen was door branden, herbebossen en liet er wegen, afwateringskanalen en wijngaarden aanleggen. Voor zijn arbeiders op het eiland en hun gezinnen liet hij een school bouwen en richtte hij een coöperatieve op. Hij stierf in 1935 op het eiland en werd er ook begraven. Het eiland bleef tot 1971 eigendom van zijn erfgenamen, waarna het verkocht werd aan de Franse staat. Porquerolles heeft zo&#39;n tweehonderd inwoners die merendeels rond de haven wonen. Het eiland is grotendeels natuurgebied. Sinds 2010 wordt er elk jaar een jazzfestival gehouden.&quot;@nl,
+        &quot;Île de Porquerolles – wyspa w archipelagu Îles d&#39;Hyères w południowej Francji, na Morzu Śródziemnym (departament Var). Na wyspie mieszkało w 2004 około 200 mieszkańców. Île de Porquerolles jest największą z wysp archipelagu Îles d&#39;Hyères. Jej długość wynosi 7 km, szerokość 5 km. Na wyspie znajduje się 5 pasm wzgórz. Na jej południu znajduje się wybrzeże klifowe. Na północy istnieje port oraz plaże (Notre Dame, La Courtade oraz Plage d&#39;Argent). W 1820 roku na wyspie zostało założone miasteczko. W 1823 roku wybudowano latarnię morską na Cap d&#39;Arme, zaś w 1850 roku kościół parafialny. Wyspę zakupił w 1912 roku François Joseph Fournier jako podarunek ślubny dla swej żony. Nowy właściciel założył winnicę, w której produkowano pierwsze wina klasyfikowane jako vin des Côtes de Provence. W 1971 roku 80 procent Île de Porquerolles odkupiło państwo, by zapobiec degradacji środowiska naturalnego poprzez zabudowę. Większą część wyspy obejmuje obecnie teren Parku Narodowego Port-Cros (Parc National de Port-Cros). Na wyspie utworzono Conservatoire botanique national méditerranéen de Porquerolles - instytucję państwową poświęconą ochronie i zachowaniu różnorodności roślinności śródziemnomorskiej, w skład której wchodzą ogród botaniczny roślin śródziemnomorskich z kolekcją rzadkich odmian z całego regionu Prowansji, Langwedocji i Lazurowego Wybrzeża, a także bank nasion.&quot;@pl,
+        &quot;Porquerolles (pronúncia em francês: ​[pɔʁkəʁɔl]), também conhecida como Île de Porquerolles, é uma ilha do grupo denominado Îles d&#39;Hyères, no mar Mediterrâneo, pertencente ao departamento de Var, Provence-Alpes-Côte d&#39;Azur, França. A sua área total é de 1254 hectares, e a população em 2004 era de cerca de 200 habitantes. Porquerolles é a maior e mais ocidental das três ilhas principais das Îles d&#39;Hyères. Tem 7 km de comprimento por 3 km de largura.&quot;@pt,
+        &quot;Поркеро́ль (фр. Ile de Porquerolles) — французский остров, расположенный в Средиземном море у побережья Ривьеры между Марселем и Ниццей. Крупнейший остров Йерских островов. Площадь острова — 12,54 км². Население, согласно переписи 2004 года, — 200 человек. Островное поселение было основано в 1820 году. В 1837 году на острове был построен маяк, а в 1850 году — . В 1912 году весь остров был куплен в качестве его жене. В 1971 году государство выкупило 80 % острова, желая сохранить его природу от застройки. В настоящее время большая часть острова находится в составе национального парка Пор-Кро (фр. Port-Cros Parc National) и заповедника.&quot;@ru,
+        &quot;Поркероль (фр. Île de Porquerolles) — найбільший острів архіпелагу Єрські острови (фр. Îles d&#39;Hyères, також Золоті острови фр. Îles d’or). Розташований біля французького середземноморського узбережжя в районі Лазурового берега неподалік від міста Тулон.&quot;@uk,
+        &quot;波克羅勒島（法語：Île de Porquerolles，简称Porquerolles，法语发音：[pɔʁkəʁɔl]）是法国普罗旺斯-阿尔卑斯-蓝色海岸大区瓦尔省的一座島嶼，是的四座岛屿之一，長7公里、寬3公里，面積12.54平方公里，最高點海拔高度142米，2004年人口約200。&quot;@zh ;
+    dbo:thumbnail &lt;http://commons.wikimedia.org/wiki/Special:FilePath/Porquerolles_topographic_map-fr.svg?width=300&gt; ;
+    dbo:wikiPageExternalLink &lt;http://www.ot-lalondelesmaures.fr/en/discover-la-londe/the-golden-islands/porquerolles/index.htm&gt;,
+        &lt;http://www.porquerolles.com/default.php%3Fid_compte=5&amp;rub=rubrique1&amp;ln=en&gt;,
+        &lt;http://www.portcrosparcnational.fr/&gt;,
+        &lt;http://www.provenceweb.fr/e/var/porquerolles/porquerolles.htm&gt; ;
+    dbo:wikiPageID 21843377 ;
+    dbo:wikiPageLength &quot;6807&quot;^^xsd:nonNegativeInteger ;
+    dbo:wikiPageRevisionID 1106960782 ;
+    dbo:wikiPageWikiLink &lt;http://dbpedia.org/resource/Category:French_Riviera&gt;,
+        &lt;http://dbpedia.org/resource/Category:Islands_of_Provence-Alpes-Côte_d&#39;Azur&gt;,
+        &lt;http://dbpedia.org/resource/Category:Landforms_of_Var_(department)&gt;,
+        &lt;http://dbpedia.org/resource/Category:Mediterranean_islands&gt;,
+        &lt;http://dbpedia.org/resource/Category:Populated_places_established_in_1820&gt;,
+        &lt;http://dbpedia.org/resource/Category:Tourist_attractions_in_Var_(department)&gt;,
+        &lt;http://dbpedia.org/resource/Category:Îles_d&#39;Hyères&gt;,
+        &lt;http://dbpedia.org/resource/Conservatoire_botanique_national_méditerranéen_de_Porquerolles&gt;,
+        &lt;http://dbpedia.org/resource/File:Porquerolles_topographic_map-fr.svg&gt;,
+        &lt;http://dbpedia.org/resource/File:Porquerolles_vue_du_ciel_-_Anse_de_la_Courtade.JPG&gt;,
+        &lt;http://dbpedia.org/resource/France&gt;,
+        &lt;http://dbpedia.org/resource/François_Joseph_Fournier&gt;,
+        &lt;http://dbpedia.org/resource/Georges_Simenon&gt;,
+        &lt;http://dbpedia.org/resource/Hot-summer_Mediterranean_climate&gt;,
+        &lt;http://dbpedia.org/resource/Köppen_climate_classification&gt;,
+        &lt;http://dbpedia.org/resource/Meteo_France&gt;,
+        &lt;http://dbpedia.org/resource/Nicolas_Freeling&gt;,
+        &lt;http://dbpedia.org/resource/Port-Cros_National_Park&gt;,
+        &lt;http://dbpedia.org/resource/Provence-Alpes-Côte_d&#39;Azur&gt;,
+        &lt;http://dbpedia.org/resource/Var_(department)&gt;,
+        &lt;http://dbpedia.org/resource/Vineyard&gt;,
+        &lt;http://dbpedia.org/resource/Îles_d&#39;Hyères&gt; ;
+    dbp:aprHighC 1.81e+01 ;
+    dbp:aprLowC 1.09e+01 ;
+    dbp:aprMeanC 1.45e+01 ;
+    dbp:aprPrecipitationDays 5.8e+00 ;
+    dbp:aprPrecipitationMm 5.65e+01 ;
+    dbp:aprRecordHighC 2.68e+01 ;
+    dbp:aprRecordLowC 2 ;
+    dbp:augHighC 29 ;
+    dbp:augLowC 2.05e+01 ;
+    dbp:augMeanC 2.48e+01 ;
+    dbp:augPrecipitationDays 1.7e+00 ;
+    dbp:augPrecipitationMm 1.59e+01 ;
+    dbp:augRecordHighC 3.85e+01 ;
+    dbp:augRecordLowC 1.15e+01 ;
+    dbp:decHighC 1.38e+01 ;
+    dbp:decLowC 8.5e+00 ;
+    dbp:decMeanC 1.11e+01 ;
+    dbp:decPrecipitationDays 6.4e+00 ;
+    dbp:decPrecipitationMm 6.63e+01 ;
+    dbp:decRecordHighC 2.25e+01 ;
+    dbp:decRecordLowC -2 ;
+    dbp:febHighC 1.35e+01 ;
+    dbp:febLowC 7.1e+00 ;
+    dbp:febMeanC 1.03e+01 ;
+    dbp:febPrecipitationDays 5.3e+00 ;
+    dbp:febPrecipitationMm 4.81e+01 ;
+    dbp:febRecordHighC 22 ;
+    dbp:febRecordLowC -10 ;
+    dbp:janHighC 1.32e+01 ;
+    dbp:janLowC 7.5e+00 ;
+    dbp:janMeanC 1.04e+01 ;
+    dbp:janPrecipitationDays 6 ;
+    dbp:janPrecipitationMm 6.41e+01 ;
+    dbp:janRecordHighC 20 ;
+    dbp:janRecordLowC -7 ;
+    dbp:julHighC 2.87e+01 ;
+    dbp:julLowC 20 ;
+    dbp:julMeanC 2.43e+01 ;
+    dbp:julPrecipitationDays 8e-01 ;
+    dbp:julPrecipitationMm 8.4e+00 ;
+    dbp:julRecordHighC 37 ;
+    dbp:julRecordLowC 1.02e+01 ;
+    dbp:junHighC 26 ;
+    dbp:junLowC 1.76e+01 ;
+    dbp:junMeanC 2.18e+01 ;
+    dbp:junPrecipitationDays 2.3e+00 ;
+    dbp:junPrecipitationMm 2.85e+01 ;
+    dbp:junRecordHighC 3.65e+01 ;
+    dbp:junRecordLowC 9 ;
+    dbp:location &quot;Porquerolles&quot;@en ;
+    dbp:marHighC 1.59e+01 ;
+    dbp:marLowC 8.9e+00 ;
+    dbp:marMeanC 1.24e+01 ;
+    dbp:marPrecipitationDays 4.7e+00 ;
+    dbp:marPrecipitationMm 4.21e+01 ;
+    dbp:marRecordHighC 2.35e+01 ;
+    dbp:marRecordLowC -5.8e+00 ;
+    dbp:mayHighC 22 ;
+    dbp:mayLowC 1.41e+01 ;
+    dbp:mayMeanC 18 ;
+    dbp:mayPrecipitationDays 4 ;
+    dbp:mayPrecipitationMm 3.38e+01 ;
+    dbp:mayRecordHighC 3.29e+01 ;
+    dbp:mayRecordLowC 6.4e+00 ;
+    dbp:metricFirst &quot;Y&quot;@en ;
+    dbp:novHighC 1.67e+01 ;
+    dbp:novLowC 1.09e+01 ;
+    dbp:novMeanC 1.38e+01 ;
+    dbp:novPrecipitationDays 7.6e+00 ;
+    dbp:novPrecipitationMm 96 ;
+    dbp:novRecordHighC 2.48e+01 ;
+    dbp:novRecordLowC -1.2e+00 ;
+    dbp:octHighC 2.13e+01 ;
+    dbp:octLowC 1.48e+01 ;
+    dbp:octMeanC 18 ;
+    dbp:octPrecipitationDays 6.5e+00 ;
+    dbp:octPrecipitationMm 8.55e+01 ;
+    dbp:octRecordHighC 2.92e+01 ;
+    dbp:octRecordLowC 3.5e+00 ;
+    dbp:precipitationColour &quot;green&quot;@en ;
+    dbp:sepHighC 2.55e+01 ;
+    dbp:sepLowC 1.76e+01 ;
+    dbp:sepMeanC 2.16e+01 ;
+    dbp:sepPrecipitationDays 4.3e+00 ;
+    dbp:sepPrecipitationMm 6.05e+01 ;
+    dbp:sepRecordHighC 3.31e+01 ;
+    dbp:sepRecordLowC 9.7e+00 ;
+    dbp:singleLine &quot;Y&quot;@en ;
+    dbp:source &lt;http://dbpedia.org/resource/Meteo_France&gt; ;
+    dbp:unitPrecipitationDays &quot;1.0&quot;^^&lt;http://dbpedia.org/datatype/millimetre&gt; ;
+    dbp:wikiPageUsesTemplate &lt;http://dbpedia.org/resource/Template:Authority_control&gt;,
+        &lt;http://dbpedia.org/resource/Template:Clear&gt;,
+        &lt;http://dbpedia.org/resource/Template:Commons_category&gt;,
+        &lt;http://dbpedia.org/resource/Template:Convert&gt;,
+        &lt;http://dbpedia.org/resource/Template:Coord&gt;,
+        &lt;http://dbpedia.org/resource/Template:Cvt&gt;,
+        &lt;http://dbpedia.org/resource/Template:IPA-fr&gt;,
+        &lt;http://dbpedia.org/resource/Template:Interlanguage_link_multi&gt;,
+        &lt;http://dbpedia.org/resource/Template:More_footnotes&gt;,
+        &lt;http://dbpedia.org/resource/Template:Reflist&gt;,
+        &lt;http://dbpedia.org/resource/Template:Short_description&gt;,
+        &lt;http://dbpedia.org/resource/Template:Var-geo-stub&gt;,
+        &lt;http://dbpedia.org/resource/Template:Weather_box&gt;,
+        &lt;http://dbpedia.org/resource/Template:Wikivoyage&gt; ;
+    dbp:yearHighC 2.03e+01 ;
+    dbp:yearLowC 1.32e+01 ;
+    dbp:yearMeanC 1.68e+01 ;
+    dbp:yearPrecipitationDays 5.55e+01 ;
+    dbp:yearPrecipitationMm 6.057e+02 ;
+    dbp:yearRecordHighC 3.85e+01 ;
+    dbp:yearRecordLowC -10 ;
+    dct:subject &lt;http://dbpedia.org/resource/Category:French_Riviera&gt;,
+        &lt;http://dbpedia.org/resource/Category:Islands_of_Provence-Alpes-Côte_d&#39;Azur&gt;,
+        &lt;http://dbpedia.org/resource/Category:Landforms_of_Var_(department)&gt;,
+        &lt;http://dbpedia.org/resource/Category:Mediterranean_islands&gt;,
+        &lt;http://dbpedia.org/resource/Category:Populated_places_established_in_1820&gt;,
+        &lt;http://dbpedia.org/resource/Category:Tourist_attractions_in_Var_(department)&gt;,
+        &lt;http://dbpedia.org/resource/Category:Îles_d&#39;Hyères&gt; ;
+    gold:hypernym &lt;http://dbpedia.org/resource/Island&gt; ;
+    schema:sameAs &lt;http://viaf.org/viaf/146027826&gt; ;
+    georss:point &quot;43.0 6.216666666666667&quot; ;
+    rdfs:comment &quot;L&#39;illa de Pòrcaròlas (en occità, l&#39;iscla de Pòrcaròlas) és una illa part de l&#39;arxipèlag de les illes d&#39;Or de Ieras, al Var, a la Provença, al sud-est de França. La seva població és de 257 habitants (2012) i ocupa 1.254 hectàrees (12,54 quilòmetres quadrats i 4,84 milles quadrades). Pòrcaròlas és la major i més occidental de les tres illes ierenques. Té uns 7 km (4,3 milles) de llarg per 3 km (1,9 milles) d&#39;ample, amb cinc petits sistemes dels turons. La costa sud està plena de penya-segats, i a la costa nord es troben el port i les platges de Nòstra Sinhòra, de la Cortada i d&#39;Argent.&quot;@ca,
+        &quot;Die Île de Porquerolles ist die größte Insel der Inselgruppe von Hyères (Îles d’Hyères bzw. Îles d’or). Sie liegt vor der französischen Mittelmeerküste im Bereich der Côte d’Azur in der Nähe von Toulon. Ebenfalls an der Nordseite der Insel befinden sich einige schöne Sandstrände: die Plage d&#39;Argent im Westen, die Plage de la Courtade an der Ostseite des Ortes und die Plage de Notre-Dame ganz im Osten der Insel. Die Südküste ist zum Baden eher ungeeignet, da das Ufer steil abfällt. An der Südspitze, dem Cap d&#39;Arme, befindet sich ein alter Leuchtturm.&quot;@de,
+        &quot;Το Πορκερόλ (γαλ. Porquerolles) είναι το δεύτερο μεγαλύτερο νησί της Γαλλίας στη Μεσόγειο θάλασσα και το ένατο μεγαλύτερο νησί της Γαλλίας (δεν υπολογίζονται οι γαλλικές υπερπόντιες περιοχές), μετά την Κορσική, το Ολερόν, το Μπελ Ιλ αν Μερ, το Ιλ ντε Ρε, το Νουαρμουτιέ, το Ιλ ντ Ιε, το Ουεσάν και το Γκρουά. Έχει έκταση 12,54 τ. χλμ. και έχει 200 κατοίκους (2004).&quot;@el,
+        &quot;Porquerolles (French pronunciation: ​[pɔʁkəʁɔl]), also known as the Île de Porquerolles, is an island in the Îles d&#39;Hyères, Var, Provence-Alpes-Côte d&#39;Azur, France. Its land area is 1,254 hectares (12.54 km2; 4.84 sq mi) and in 2004 its population was about 200. Porquerolles is the largest, most westerly of the three Îles d&#39;Hyères. It is about 7 km (4.3 miles) long by 3 km (1.9 miles) wide, with five small ranges of hills. The south coast is lined with cliffs, and on the north coast are the port and the beaches of Notre Dame, La Courtade and Plage d&#39;Argent.&quot;@en,
+        &quot;Isla de Porquerolles (en francés: Île de Porquerolles)​ es una isla parte del archipiélago de las Îles d&#39;Hyères, en Var, en la región de Provenza-Alpes-Costa Azul, al sureste del país europeo de Francia. Su población era de unos 200 habitantes en 2004 y ocupa 12,54 kilómetros cuadrados. Porquerolles es la mayor y más occidental de las tres islas en las Îles d&#39;Hyères. Posee unos 7 km de largo por 3 km de ancho, con cinco pequeños sistemas de las colinas. La costa sur está llena de acantilados, y en la costa norte se encuentran el puerto y las playas de Notre Dame, La Courtade, y Plage d&#39;Argent.&quot;@es,
+        &quot;Porquerolles (pɔʁkəʁɔl ahoskatua) Frantziako uhartea da, Hyères uhartedian handiena dena. Uharteak 12,54 km²-ko azalera du eta 2004an 200 biztanle zituen. Hegoaldeko kostaldea labarrez beteta dago, eta iparraldeko kostaldean portua eta Notre Dame, La Courtade eta Plage d &#39;Argent hondartzak daude.&quot;@eu,
+        &quot;L’île de Porquerolles est la plus grande et la plus occidentale des trois îles d&#39;Hyères avec ses 12,54 km2 de superficie. Elle se situe à 2,6 km au sud-est de la Tour Fondue, l&#39;extrémité sud de la presqu&#39;île de Giens, et à 9,6 km à l&#39;ouest de l&#39;île de Port-Cros. Elle forme un arc orienté est-ouest, aux bords découpés, de 7,5 km de long sur 3 km de large. Son pourtour est d’une trentaine de kilomètres. L’île culmine au sémaphore à 142 m. Elle doit son état de conservation au fait qu&#39;elle est propriété de l&#39;État français depuis 1971 et bénéficie du statut de « parc national » depuis 2012.&quot;@fr,
+        &quot;Porquerolles (in occitano Porcairòla) è l&#39;isola più grande e la più occidentale del piccolo arcipelago delle Isole di Hyères, in Provenza (Francia). La superficie di 1254 ettari ne fa la seconda isola mediterranea della Francia dopo la Corsica, con una lunghezza di circa 7,5 km e una larghezza di 3 km. Lo sviluppo costiero è di circa 30 chilometri. Possiede cinque piccole catene montuose e la costa meridionale è composta da ripide scogliere, mentre a nord si trovano il porto e spiagge di sabbia coperte di pini, erica e mirto – le più note sono le spiagge di Notre Dame, La Courtade e Plage d&#39;Argent.&quot;@it,
+        &quot;Het eiland Porquerolles is het grootste en meest westelijke van de Zuid-Franse eilandengroep Îles d&#39;Hyères. Het eiland is ongeveer 7,5 kilometer lang, 3 kilometer breed en heeft een oppervlakte van 1.254 hectare. De zuidkust is heuvelachtig met kliffen. De noordkust heeft lange stranden. Het hoogste punt ligt op 142 meter. Het eiland werd verdedigd door verschillende forten: het in het westen, het in het oosten en het (16e eeuw) boven de haven van Porquerolles.&quot;@nl,
+        &quot;Île de Porquerolles – wyspa w archipelagu Îles d&#39;Hyères w południowej Francji, na Morzu Śródziemnym (departament Var). Na wyspie mieszkało w 2004 około 200 mieszkańców. Île de Porquerolles jest największą z wysp archipelagu Îles d&#39;Hyères. Jej długość wynosi 7 km, szerokość 5 km. Na wyspie znajduje się 5 pasm wzgórz. Na jej południu znajduje się wybrzeże klifowe. Na północy istnieje port oraz plaże (Notre Dame, La Courtade oraz Plage d&#39;Argent).&quot;@pl,
+        &quot;Porquerolles (pronúncia em francês: ​[pɔʁkəʁɔl]), também conhecida como Île de Porquerolles, é uma ilha do grupo denominado Îles d&#39;Hyères, no mar Mediterrâneo, pertencente ao departamento de Var, Provence-Alpes-Côte d&#39;Azur, França. A sua área total é de 1254 hectares, e a população em 2004 era de cerca de 200 habitantes. Porquerolles é a maior e mais ocidental das três ilhas principais das Îles d&#39;Hyères. Tem 7 km de comprimento por 3 km de largura.&quot;@pt,
+        &quot;Поркеро́ль (фр. Ile de Porquerolles) — французский остров, расположенный в Средиземном море у побережья Ривьеры между Марселем и Ниццей. Крупнейший остров Йерских островов. Площадь острова — 12,54 км². Население, согласно переписи 2004 года, — 200 человек.&quot;@ru,
+        &quot;Поркероль (фр. Île de Porquerolles) — найбільший острів архіпелагу Єрські острови (фр. Îles d&#39;Hyères, також Золоті острови фр. Îles d’or). Розташований біля французького середземноморського узбережжя в районі Лазурового берега неподалік від міста Тулон.&quot;@uk,
+        &quot;波克羅勒島（法語：Île de Porquerolles，简称Porquerolles，法语发音：[pɔʁkəʁɔl]）是法国普罗旺斯-阿尔卑斯-蓝色海岸大区瓦尔省的一座島嶼，是的四座岛屿之一，長7公里、寬3公里，面積12.54平方公里，最高點海拔高度142米，2004年人口約200。&quot;@zh ;
+    owl:sameAs &lt;http://br.dbpedia.org/resource/Porcairòla&gt;,
+        &lt;http://ca.dbpedia.org/resource/Pòrcaròlas&gt;,
+        &lt;http://ce.dbpedia.org/resource/Поркероль&gt;,
+        &lt;http://ceb.dbpedia.org/resource/Île_de_Porquerolles&gt;,
+        &lt;http://commons.dbpedia.org/resource/Porquerolles&gt;,
+        &lt;http://d-nb.info/gnd/4552587-0&gt;,
+        &lt;http://da.dbpedia.org/resource/Porquerolles&gt;,
+        &lt;http://de.dbpedia.org/resource/Porquerolles&gt;,
+        &lt;http://el.dbpedia.org/resource/Πορκερόλ&gt;,
+        &lt;http://es.dbpedia.org/resource/Porquerolles&gt;,
+        &lt;http://eu.dbpedia.org/resource/Porquerolles&gt;,
+        &lt;http://fr.dbpedia.org/resource/Île_de_Porquerolles&gt;,
+        &lt;http://it.dbpedia.org/resource/Porquerolles&gt;,
+        &lt;http://lb.dbpedia.org/resource/Porquerolles&gt;,
+        &lt;http://nl.dbpedia.org/resource/Porquerolles&gt;,
+        &lt;http://oc.dbpedia.org/resource/Porcairòla&gt;,
+        &lt;http://pl.dbpedia.org/resource/Île_de_Porquerolles&gt;,
+        &lt;http://pms.dbpedia.org/resource/Porquerolles&gt;,
+        &lt;http://pt.dbpedia.org/resource/Porquerolles&gt;,
+        &lt;http://rdf.freebase.com/ns/m.05p12lr&gt;,
+        &lt;http://ru.dbpedia.org/resource/Поркероль&gt;,
+        &lt;http://sws.geonames.org/2986056/&gt;,
+        &lt;http://uk.dbpedia.org/resource/Поркероль&gt;,
+        &lt;http://viaf.org/viaf/146027826&gt;,
+        &lt;http://www.wikidata.org/entity/Q975080&gt;,
+        &lt;http://yago-knowledge.org/resource/Porquerolles&gt;,
+        &lt;http://zh.dbpedia.org/resource/波克羅勒島&gt;,
+        &lt;https://global.dbpedia.org/id/57G44&gt; ;
+    geo:geometry &quot;POINT(6.2166666984558 43)&quot;^^&lt;http://www.openlinksw.com/schemas/virtrdf#Geometry&gt; ;
+    geo:lat &quot;43.0&quot;^^xsd:float ;
+    geo:long &quot;6.21667&quot;^^xsd:float ;
+    prov:wasDerivedFrom &lt;http://en.wikipedia.org/wiki/Porquerolles?oldid=1106960782&amp;ns=0&gt; ;
+    foaf:depiction &lt;http://commons.wikimedia.org/wiki/Special:FilePath/Porquerolles_topographic_map-fr.svg&gt;,
+        &lt;http://commons.wikimedia.org/wiki/Special:FilePath/Porquerolles_vue_du_ciel_-_Anse_de_la_Courtade.jpg&gt; ;
+    foaf:isPrimaryTopicOf &lt;http://en.wikipedia.org/wiki/Porquerolles&gt; .
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdflib</span> <span class="kn">import</span> <span class="n">Graph</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="theory.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Theory</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="1-RDF_hands-on.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Practical introduction to RDF and SPARQL</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alban Gaignard, Olivier Dameron, Imane Messak et Thomas Denecker<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

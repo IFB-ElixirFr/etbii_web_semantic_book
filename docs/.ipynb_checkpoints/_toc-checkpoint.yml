@@ -6,10 +6,15 @@ root: intro
 parts:
   - caption: Theory
     chapters:
-        - file: markdown-notebooks
+        - file: theory
   - caption: Pratice
     chapters:
-        - file: markdown
+        - file: 0-setup-environment
+        - file: 1-RDF_hands-on
+        - file: 2-Life_Science_ontologies_and_Knowledge_Graphs_-_hands_on
+        - file: 3-Multi-source_queries
+        - file: 4-Display_graph
+        - file: 5-Quiz
   - caption: Ressources
     chapters:
-        - file: markdown2
+        - file: genindex

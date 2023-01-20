@@ -1,0 +1,1616 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Combining graphs from multiple data sources &#8212; Web semantic</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Use cytoscape" href="4-Display_graph.html" />
+    <link rel="prev" title="Life Science ontologies and Knowledge Graphs, HANDS-ON" href="2-Life_Science_ontologies_and_Knowledge_Graphs_-_hands_on.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">Work in progress</div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Web semantic</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the web semantic introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Theory
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="theory.html">
+   Theory
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Pratice
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-setup-environment.html">
+   Software environment setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-RDF_hands-on.html">
+   Practical introduction to RDF and SPARQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-Life_Science_ontologies_and_Knowledge_Graphs_-_hands_on.html">
+   Life Science ontologies and Knowledge Graphs, HANDS-ON
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Combining graphs from multiple data sources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-Display_graph.html">
+   Use cytoscape
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ressources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/IFB-ElixirFr/etbii_web_semantic_book/main?urlpath=tree/docs/3-Multi-source_queries.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/IFB-ElixirFr/etbii_web_semantic_book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/IFB-ElixirFr/etbii_web_semantic_book/issues/new?title=Issue%20on%20page%20%2F3-Multi-source_queries.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/3-Multi-source_queries.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#find-interacting-proteins-with-scn5a-from-uniprot">
+   1. Find interacting proteins with SCN5A (from Uniprot)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#look-at-the-rdf-graph-describing-scn5a">
+   2. Look at the RDF graph describing SCN5A
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#post-process-your-results-get-a-list-of-gene-identifiers-remove-the-human-postfix">
+   3. Post process your results get a list of gene identifiers (remove the “_HUMAN” postfix)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filter-tissues-in-which-genes-are-expressed-from-bgee">
+   4. Filter tissues in which genes are expressed (from Bgee)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#find-tissues-in-which-scn5a-is-expressed">
+     4.1. Find tissues in which SCN5A is expressed
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-a-subgraph-with-a-construct-where-query">
+   4.2. Build a subgraph with a CONSTRUCT … WHERE query
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-a-network-of-genes-that-are-co-expressed-in-the-same-tissue">
+   5. Build a network of genes that are co-expressed in the same tissue
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Combining graphs from multiple data sources</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#find-interacting-proteins-with-scn5a-from-uniprot">
+   1. Find interacting proteins with SCN5A (from Uniprot)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#look-at-the-rdf-graph-describing-scn5a">
+   2. Look at the RDF graph describing SCN5A
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#post-process-your-results-get-a-list-of-gene-identifiers-remove-the-human-postfix">
+   3. Post process your results get a list of gene identifiers (remove the “_HUMAN” postfix)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filter-tissues-in-which-genes-are-expressed-from-bgee">
+   4. Filter tissues in which genes are expressed (from Bgee)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#find-tissues-in-which-scn5a-is-expressed">
+     4.1. Find tissues in which SCN5A is expressed
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-a-subgraph-with-a-construct-where-query">
+   4.2. Build a subgraph with a CONSTRUCT … WHERE query
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-a-network-of-genes-that-are-co-expressed-in-the-same-tissue">
+   5. Build a network of genes that are co-expressed in the same tissue
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="combining-graphs-from-multiple-data-sources">
+<h1>Combining graphs from multiple data sources<a class="headerlink" href="#combining-graphs-from-multiple-data-sources" title="Permalink to this headline">#</a></h1>
+<p>In this notebook you will be able to search for protein interactions (Uniprot), expressions in tissues (Bgee). Finally you will lear how to assemble a new graph of co-expressed gene.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install rdflib
+<span class="o">!</span>pip install sparqlwrapper
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: rdflib in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (6.2.0)
+Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib) (65.3.0)
+Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib) (0.6.1)
+Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib) (3.0.9)
+Requirement already satisfied: six in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from isodate-&gt;rdflib) (1.16.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: sparqlwrapper in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (2.0.0)
+Requirement already satisfied: rdflib&gt;=6.1.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from sparqlwrapper) (6.2.0)
+Requirement already satisfied: setuptools in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (65.3.0)
+Requirement already satisfied: isodate in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (0.6.1)
+Requirement already satisfied: pyparsing in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from rdflib&gt;=6.1.1-&gt;sparqlwrapper) (3.0.9)
+Requirement already satisfied: six in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from isodate-&gt;rdflib&gt;=6.1.1-&gt;sparqlwrapper) (1.16.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rdflib</span>
+<span class="kn">from</span> <span class="nn">SPARQLWrapper</span> <span class="kn">import</span> <span class="n">SPARQLWrapper</span><span class="p">,</span> <span class="n">JSON</span><span class="p">,</span> <span class="n">TURTLE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="find-interacting-proteins-with-scn5a-from-uniprot">
+<h2>1. Find interacting proteins with SCN5A (from Uniprot)<a class="headerlink" href="#find-interacting-proteins-with-scn5a-from-uniprot" title="Permalink to this headline">#</a></h2>
+<p>By browsing <a class="reference external" href="http://uniprot.org">http://uniprot.org</a>, find the web page describing SCN5A_HUMAN.</p>
+</section>
+<section id="look-at-the-rdf-graph-describing-scn5a">
+<h2>2. Look at the RDF graph describing SCN5A<a class="headerlink" href="#look-at-the-rdf-graph-describing-scn5a" title="Permalink to this headline">#</a></h2>
+<p>You can directly access RDF <a class="reference external" href="https://www.uniprot.org/uniprotkb/Q14524.ttl">https://www.uniprot.org/uniprotkb/Q14524.ttl</a> .</p>
+<p>By using the following graph pattern write a SPARQL query to find the proteins interacting with SCN5A.</p>
+<p><a class="reference external" href="https://www.uniprot.org/uniprotkb/Q14524.ttl">https://www.uniprot.org/uniprotkb/Q14524.ttl</a></p>
+<p>Find all PPI in which Q14524 is a participant.
+You can use the following graph pattern :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>VALUES ?P1 {uniprot:Q14524}
+?interaction up:participant ?P1 . 
+?interaction up:participant ?P2 .
+?P1 up:mnemonic ?P1_label .
+?P2 up:mnemonic ?P2_label .
+FILTER (?P2 != ?P1)
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uniprot_query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</span>
+<span class="s2">PREFIX rdfs:&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span>
+<span class="s2">PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;</span>
+<span class="s2">PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</span>
+<span class="s2">PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;</span>
+<span class="s2">PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;</span>
+
+<span class="s2">PREFIX taxon: &lt;http://purl.uniprot.org/taxonomy/&gt;</span>
+<span class="s2">PREFIX uniprot: &lt;http://purl.uniprot.org/uniprot/&gt;</span>
+<span class="s2">PREFIX up:&lt;http://purl.uniprot.org/core/&gt;</span>
+
+<span class="s2">SELECT * WHERE {</span>
+
+<span class="s2">    VALUES ?P1 {uniprot:Q14524}</span>
+<span class="s2">    ?P1 up:mnemonic ?P1_label .</span>
+<span class="s2">    ?P1 up:organism ?org . </span>
+<span class="s2">    ?P1 up:interaction ?interaction . </span>
+<span class="s2">    ?P2 up:interaction ?interaction .</span>
+<span class="s2">    ?P2 up:mnemonic ?P2_label .</span>
+<span class="s2">    ?interaction up:experiments ?nb_exp .</span>
+
+<span class="s2">} limit 10</span>
+
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">sparql</span> <span class="o">=</span> <span class="n">SPARQLWrapper</span><span class="p">(</span><span class="s2">&quot;http://sparql.uniprot.org/sparql/&quot;</span><span class="p">)</span>
+<span class="n">sparql</span><span class="o">.</span><span class="n">setQuery</span><span class="p">(</span><span class="n">uniprot_query</span><span class="p">)</span>
+<span class="n">sparql</span><span class="o">.</span><span class="n">setReturnFormat</span><span class="p">(</span><span class="n">JSON</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">sparql</span><span class="o">.</span><span class="n">query</span><span class="p">()</span><span class="o">.</span><span class="n">convert</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="s1">&#39;bindings&#39;</span><span class="p">])</span>
+
+<span class="n">list_of_genes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;SCN5A&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="s1">&#39;bindings&#39;</span><span class="p">]:</span>
+    <span class="c1">#print(f&quot;{r[&#39;P1_label&#39;][&#39;value&#39;]} &lt;-&gt; {r[&#39;P2_label&#39;][&#39;value&#39;]} in {r[&#39;nb_expe&#39;][&#39;value&#39;]} experiments.&quot;)</span>
+    <span class="c1">#list_of_genes.append(r[&#39;P2_label&#39;][&#39;value&#39;].split(&quot;_HUMAN&quot;)[0])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">list_of_genes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;3&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/11524452-14276801&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}, {&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q8N9N5&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;3&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;BANP_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/11524452-14276801&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}, {&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q9Y3B6&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;3&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;EMC9_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/748366-14276801&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}, {&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;3&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/748366-14276801&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}, {&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;4&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/726858-10699759&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}, {&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/P61328&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;4&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;FGF12_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/726858-10699759&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}, {&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;16&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/351018-726858&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}, {&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q13557&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;16&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;KCC2D_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/351018-726858&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}, {&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/P26045&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;2&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;PTN3_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/726858-1047946&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}, {&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;2&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/726858-1047946&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}]
+{&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;3&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/11524452-14276801&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}
+{&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q8N9N5&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;3&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;BANP_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/11524452-14276801&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}
+{&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q9Y3B6&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;3&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;EMC9_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/748366-14276801&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}
+{&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;3&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/748366-14276801&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}
+{&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;4&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/726858-10699759&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}
+{&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/P61328&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;4&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;FGF12_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/726858-10699759&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}
+{&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;16&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/351018-726858&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}
+{&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q13557&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;16&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;KCC2D_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/351018-726858&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}
+{&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/P26045&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;2&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;PTN3_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/726858-1047946&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}
+{&#39;P1&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;P2&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/uniprot/Q14524&#39;}, &#39;nb_exp&#39;: {&#39;datatype&#39;: &#39;http://www.w3.org/2001/XMLSchema#int&#39;, &#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;2&#39;}, &#39;org&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/taxonomy/9606&#39;}, &#39;P2_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}, &#39;interaction&#39;: {&#39;type&#39;: &#39;uri&#39;, &#39;value&#39;: &#39;http://purl.uniprot.org/intact/726858-1047946&#39;}, &#39;P1_label&#39;: {&#39;type&#39;: &#39;literal&#39;, &#39;value&#39;: &#39;SCN5A_HUMAN&#39;}}
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;SCN5A&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install networkx
+<span class="o">!</span>pip install matplotlib
+<span class="o">!</span>pip install scipy
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: networkx in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (3.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: matplotlib in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (3.6.3)
+Requirement already satisfied: packaging&gt;=20.0 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from matplotlib) (21.3)
+Requirement already satisfied: cycler&gt;=0.10 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.0.7)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from matplotlib) (2.8.2)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from matplotlib) (3.0.9)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (4.38.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (9.4.0)
+Requirement already satisfied: numpy&gt;=1.19 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from matplotlib) (1.24.1)
+Requirement already satisfied: six&gt;=1.5 in /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: scipy in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (1.10.0)
+Requirement already satisfied: numpy&lt;1.27.0,&gt;=1.19.5 in /shared/ifbstor1/home/tdenecker/.local/lib/python3.10/site-packages (from scipy) (1.24.1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="s1">&#39;bindings&#39;</span><span class="p">]:</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;P1_label&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;P2_label&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">],</span> <span class="n">nbExperiments</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;nb_exp&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+    
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3-Multi-source_queries_11_0.png" src="_images/3-Multi-source_queries_11_0.png" />
+</div>
+</div>
+</section>
+<section id="post-process-your-results-get-a-list-of-gene-identifiers-remove-the-human-postfix">
+<h2>3. Post process your results get a list of gene identifiers (remove the “_HUMAN” postfix)<a class="headerlink" href="#post-process-your-results-get-a-list-of-gene-identifiers-remove-the-human-postfix" title="Permalink to this headline">#</a></h2>
+<p>you should get something like <code class="docutils literal notranslate"><span class="pre">['SCN5A',</span> <span class="pre">'KCC2D',</span> <span class="pre">'FGF12',</span> <span class="pre">'ZMY19',</span> <span class="pre">'EMC9',</span> <span class="pre">'BANP',</span> <span class="pre">'Q49AR9',</span> <span class="pre">'TEKT4',</span> <span class="pre">'PTN3']</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">&#39;</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">list_of_genes</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">&#39;</span>
+<span class="n">genes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&quot;SCN5A&quot;&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filter-tissues-in-which-genes-are-expressed-from-bgee">
+<h2>4. Filter tissues in which genes are expressed (from Bgee)<a class="headerlink" href="#filter-tissues-in-which-genes-are-expressed-from-bgee" title="Permalink to this headline">#</a></h2>
+<section id="find-tissues-in-which-scn5a-is-expressed">
+<h3>4.1. Find tissues in which SCN5A is expressed<a class="headerlink" href="#find-tissues-in-which-scn5a-is-expressed" title="Permalink to this headline">#</a></h3>
+<p>Bgee is a gene expression RDF dataset which integrates GTex.</p>
+<p>Based on the following graph patterns, assemble a SPARQL query to retrieve tissues in which TEKT4 is expressed, for HUMANS (<a class="reference external" href="http://purl.uniprot.org/taxonomy/9606">http://purl.uniprot.org/taxonomy/9606</a>).</p>
+<p><em>Anatomical entities</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>?anatEntity a genex:AnatomicalEntity ;
+                rdfs:label ?anatName .
+</pre></div>
+</div>
+<p><em>Case insensitive matching of a string value</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FILTER (?geneName = &#39;TEKT4&#39;)
+</pre></div>
+</div>
+<p><em>Human organisms</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>?organism obo:RO_0002162 &lt;http://purl.uniprot.org/taxonomy/9606&gt; . 
+</pre></div>
+</div>
+<p><em>Some genes from some organisms</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>?seq a orth:Gene;
+     orth:organism ?organism ;
+     rdfs:label ?geneName .
+</pre></div>
+</div>
+<p><em>Some genes expressed in some tissues</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>?seq genex:isExpressedIn ?anatEntity.
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bgee_query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">PREFIX orth: &lt;http://purl.org/net/orth#&gt;</span>
+<span class="s2">PREFIX genex: &lt;http://purl.org/genex#&gt;</span>
+<span class="s2">PREFIX obo: &lt;http://purl.obolibrary.org/obo/&gt;</span>
+
+<span class="s2">SELECT DISTINCT ?anatEntity ?anatName WHERE {</span>
+<span class="s2">    ?anatEntity a genex:AnatomicalEntity ;</span>
+<span class="s2">                rdfs:label ?anatName .</span>
+<span class="s2">    ?organism obo:RO_0002162 &lt;http://purl.uniprot.org/taxonomy/9606&gt; . </span>
+<span class="s2">    ?seq a orth:Gene;</span>
+<span class="s2">     orth:organism ?organism ;</span>
+<span class="s2">     rdfs:label ?geneName .</span>
+<span class="s2">    ?seq genex:isExpressedIn ?anatEntity.</span>
+<span class="s2">    FILTER (?geneName = &#39;TEKT4&#39;)</span>
+<span class="s2">    </span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">sparql</span> <span class="o">=</span> <span class="n">SPARQLWrapper</span><span class="p">(</span><span class="s2">&quot;http://bgee.org/sparql&quot;</span><span class="p">)</span>
+<span class="n">sparql</span><span class="o">.</span><span class="n">setQuery</span><span class="p">(</span><span class="n">bgee_query</span><span class="p">)</span>
+<span class="n">sparql</span><span class="o">.</span><span class="n">setReturnFormat</span><span class="p">(</span><span class="n">JSON</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">sparql</span><span class="o">.</span><span class="n">query</span><span class="p">()</span><span class="o">.</span><span class="n">convert</span><span class="p">()</span>
+<span class="c1">#print(res[&quot;results&quot;][&quot;bindings&quot;])</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">res</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">][</span><span class="s2">&quot;bindings&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;anatEntity&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;anatName&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://purl.obolibrary.org/obo/UBERON_0000007: pituitary gland
+http://purl.obolibrary.org/obo/UBERON_0001898: hypothalamus
+http://purl.obolibrary.org/obo/UBERON_0002046: thyroid gland
+http://purl.obolibrary.org/obo/UBERON_0002369: adrenal gland
+http://purl.obolibrary.org/obo/UBERON_0003296: gland of diencephalon
+http://purl.obolibrary.org/obo/UBERON_0000029: lymph node
+http://purl.obolibrary.org/obo/UBERON_0001871: temporal lobe
+http://purl.obolibrary.org/obo/UBERON_0002465: lymphoid system
+http://purl.obolibrary.org/obo/UBERON_0001514: descending aorta
+http://purl.obolibrary.org/obo/UBERON_0002345: descending thoracic aorta
+http://purl.obolibrary.org/obo/UBERON_0003516: hindlimb blood vessel
+http://purl.obolibrary.org/obo/UBERON_0007304: appendage vasculature
+http://purl.obolibrary.org/obo/UBERON_0001516: abdominal aorta
+http://purl.obolibrary.org/obo/CL_0000000: cell
+http://purl.obolibrary.org/obo/UBERON_0000014: zone of skin
+http://purl.obolibrary.org/obo/UBERON_0000020: sense organ
+http://purl.obolibrary.org/obo/UBERON_0000033: head
+http://purl.obolibrary.org/obo/UBERON_0000061: anatomical structure
+http://purl.obolibrary.org/obo/UBERON_0000072: proximo-distal subdivision of respiratory tract
+http://purl.obolibrary.org/obo/UBERON_0000079: male reproductive system
+http://purl.obolibrary.org/obo/UBERON_0000082: adult mammalian kidney
+http://purl.obolibrary.org/obo/UBERON_0000160: intestine
+http://purl.obolibrary.org/obo/UBERON_0000165: mouth
+http://purl.obolibrary.org/obo/UBERON_0000383: musculature of body
+http://purl.obolibrary.org/obo/UBERON_0000465: material anatomical entity
+http://purl.obolibrary.org/obo/UBERON_0000467: anatomical system
+http://purl.obolibrary.org/obo/UBERON_0000468: multicellular organism
+http://purl.obolibrary.org/obo/UBERON_0000473: testis
+http://purl.obolibrary.org/obo/UBERON_0000474: female reproductive system
+http://purl.obolibrary.org/obo/UBERON_0000475: organism subdivision
+http://purl.obolibrary.org/obo/UBERON_0000915: thoracic segment of trunk
+http://purl.obolibrary.org/obo/UBERON_0000916: abdomen
+http://purl.obolibrary.org/obo/UBERON_0000945: stomach
+http://purl.obolibrary.org/obo/UBERON_0000948: heart
+http://purl.obolibrary.org/obo/UBERON_0000949: endocrine system
+http://purl.obolibrary.org/obo/UBERON_0000955: brain
+http://purl.obolibrary.org/obo/UBERON_0000990: reproductive system
+http://purl.obolibrary.org/obo/UBERON_0000991: gonad
+http://purl.obolibrary.org/obo/UBERON_0000992: ovary
+http://purl.obolibrary.org/obo/UBERON_0001004: respiratory system
+http://purl.obolibrary.org/obo/UBERON_0001007: digestive system
+http://purl.obolibrary.org/obo/UBERON_0001008: renal system
+http://purl.obolibrary.org/obo/UBERON_0001015: musculature
+http://purl.obolibrary.org/obo/UBERON_0001016: nervous system
+http://purl.obolibrary.org/obo/UBERON_0001017: central nervous system
+http://purl.obolibrary.org/obo/UBERON_0001032: sensory system
+http://purl.obolibrary.org/obo/UBERON_0001041: foregut
+http://purl.obolibrary.org/obo/UBERON_0001044: saliva-secreting gland
+http://purl.obolibrary.org/obo/UBERON_0001062: anatomical entity
+http://purl.obolibrary.org/obo/UBERON_0001264: pancreas
+http://purl.obolibrary.org/obo/UBERON_0001444: subdivision of head
+http://purl.obolibrary.org/obo/UBERON_0001456: face
+http://purl.obolibrary.org/obo/UBERON_0001555: digestive tract
+http://purl.obolibrary.org/obo/UBERON_0001558: lower respiratory tract
+http://purl.obolibrary.org/obo/UBERON_0001869: cerebral hemisphere
+http://purl.obolibrary.org/obo/UBERON_0001890: forebrain
+http://purl.obolibrary.org/obo/UBERON_0001893: telencephalon
+http://purl.obolibrary.org/obo/UBERON_0001895: metencephalon
+http://purl.obolibrary.org/obo/UBERON_0002028: hindbrain
+http://purl.obolibrary.org/obo/UBERON_0002037: cerebellum
+http://purl.obolibrary.org/obo/UBERON_0002048: lung
+http://purl.obolibrary.org/obo/UBERON_0002075: viscus
+http://purl.obolibrary.org/obo/UBERON_0002097: skin of body
+http://purl.obolibrary.org/obo/UBERON_0002100: trunk
+http://purl.obolibrary.org/obo/UBERON_0002106: spleen
+http://purl.obolibrary.org/obo/UBERON_0002107: liver
+http://purl.obolibrary.org/obo/UBERON_0002108: small intestine
+http://purl.obolibrary.org/obo/UBERON_0002113: kidney
+http://purl.obolibrary.org/obo/UBERON_0002193: hemolymphoid system
+http://purl.obolibrary.org/obo/UBERON_0002199: integument
+http://purl.obolibrary.org/obo/UBERON_0002204: musculoskeletal system
+http://purl.obolibrary.org/obo/UBERON_0002365: exocrine gland
+http://purl.obolibrary.org/obo/UBERON_0002368: endocrine gland
+http://purl.obolibrary.org/obo/UBERON_0002385: muscle tissue
+http://purl.obolibrary.org/obo/UBERON_0002390: hematopoietic system
+http://purl.obolibrary.org/obo/UBERON_0002416: integumental system
+http://purl.obolibrary.org/obo/UBERON_0002417: abdominal segment of trunk
+http://purl.obolibrary.org/obo/UBERON_0002423: hepatobiliary system
+http://purl.obolibrary.org/obo/UBERON_0002530: gland
+http://purl.obolibrary.org/obo/UBERON_0002616: regional part of brain
+http://purl.obolibrary.org/obo/UBERON_0003100: female organism
+http://purl.obolibrary.org/obo/UBERON_0003101: male organism
+http://purl.obolibrary.org/obo/UBERON_0003133: reproductive organ
+http://purl.obolibrary.org/obo/UBERON_0003134: female reproductive organ
+http://purl.obolibrary.org/obo/UBERON_0004121: ectoderm-derived structure
+http://purl.obolibrary.org/obo/UBERON_0004535: cardiovascular system
+http://purl.obolibrary.org/obo/UBERON_0005057: immune organ
+http://purl.obolibrary.org/obo/UBERON_0005409: alimentary part of gastrointestinal system
+http://purl.obolibrary.org/obo/UBERON_0007811: craniocervical region
+http://purl.obolibrary.org/obo/UBERON_0010047: oral gland
+http://purl.obolibrary.org/obo/UBERON_0010314: structure with developmental contribution from neural crest
+http://purl.obolibrary.org/obo/UBERON_0013702: body proper
+http://purl.obolibrary.org/obo/UBERON_0013765: digestive system element
+http://purl.obolibrary.org/obo/CL_0002371: somatic cell
+http://purl.obolibrary.org/obo/UBERON_0001242: intestinal mucosa
+http://purl.obolibrary.org/obo/UBERON_0001262: wall of intestine
+http://purl.obolibrary.org/obo/UBERON_0001894: diencephalon
+http://purl.obolibrary.org/obo/UBERON_0004786: gastrointestinal system mucosa
+http://purl.obolibrary.org/obo/CL_0002320: connective tissue cell
+http://purl.obolibrary.org/obo/UBERON_0000004: nose
+http://purl.obolibrary.org/obo/UBERON_0000411: visual cortex
+http://purl.obolibrary.org/obo/UBERON_0001013: adipose tissue
+http://purl.obolibrary.org/obo/UBERON_0001225: cortex of kidney
+http://purl.obolibrary.org/obo/UBERON_0001383: muscle of leg
+http://purl.obolibrary.org/obo/UBERON_0001557: upper respiratory tract
+http://purl.obolibrary.org/obo/UBERON_0001826: nasal cavity mucosa
+http://purl.obolibrary.org/obo/UBERON_0001954: Ammon&#39;s horn
+http://purl.obolibrary.org/obo/UBERON_0002021: occipital lobe
+http://purl.obolibrary.org/obo/UBERON_0002129: cerebellar cortex
+http://purl.obolibrary.org/obo/UBERON_0002268: olfactory organ
+http://purl.obolibrary.org/obo/UBERON_0002384: connective tissue
+http://purl.obolibrary.org/obo/UBERON_0002421: hippocampal formation
+http://purl.obolibrary.org/obo/UBERON_0002436: primary visual cortex
+http://purl.obolibrary.org/obo/UBERON_0002661: superior frontal gyrus
+http://purl.obolibrary.org/obo/UBERON_0003661: limb muscle
+http://purl.obolibrary.org/obo/UBERON_0004252: hindlimb stylopod muscle
+http://purl.obolibrary.org/obo/UBERON_0004480: musculature of limb
+http://purl.obolibrary.org/obo/UBERON_0005386: olfactory segment of nasal mucosa
+http://purl.obolibrary.org/obo/UBERON_0005725: olfactory system
+http://purl.obolibrary.org/obo/UBERON_0007271: appendage musculature
+http://purl.obolibrary.org/obo/UBERON_0009834: dorsolateral prefrontal cortex
+http://purl.obolibrary.org/obo/UBERON_0010890: pelvic complex muscle
+http://purl.obolibrary.org/obo/UBERON_0016540: occipital cortex
+http://purl.obolibrary.org/obo/UBERON_0003343: mucosa of oral region
+http://purl.obolibrary.org/obo/UBERON_0005334: oral lamina propria
+http://purl.obolibrary.org/obo/UBERON_0005609: iliac artery
+http://purl.obolibrary.org/obo/CL_0000081: blood cell
+http://purl.obolibrary.org/obo/CL_0000094: granulocyte
+http://purl.obolibrary.org/obo/UBERON_0000059: large intestine
+http://purl.obolibrary.org/obo/UBERON_0001134: skeletal muscle tissue
+http://purl.obolibrary.org/obo/UBERON_0001155: colon
+http://purl.obolibrary.org/obo/UBERON_0001630: muscle organ
+http://purl.obolibrary.org/obo/UBERON_0002036: striated muscle tissue
+http://purl.obolibrary.org/obo/UBERON_0014892: skeletal muscle organ
+http://purl.obolibrary.org/obo/UBERON_0018254: skeletal musculature
+http://purl.obolibrary.org/obo/UBERON_0000203: pallium
+http://purl.obolibrary.org/obo/UBERON_0000451: prefrontal cortex
+http://purl.obolibrary.org/obo/UBERON_0000956: cerebral cortex
+http://purl.obolibrary.org/obo/UBERON_0001870: frontal cortex
+http://purl.obolibrary.org/obo/UBERON_0001950: neocortex
+http://purl.obolibrary.org/obo/UBERON_0002020: gray matter
+http://purl.obolibrary.org/obo/UBERON_0003528: brain gray matter
+http://purl.obolibrary.org/obo/UBERON_0005401: cerebral hemisphere gray matter
+http://purl.obolibrary.org/obo/UBERON_0016525: frontal lobe
+http://purl.obolibrary.org/obo/UBERON_0008952: upper lobe of left lung
+http://purl.obolibrary.org/obo/CL_0002255: stromal cell of endometrium
+http://purl.obolibrary.org/obo/UBERON_0000458: endocervix
+http://purl.obolibrary.org/obo/UBERON_0001119: right lobe of thyroid gland
+http://purl.obolibrary.org/obo/UBERON_0001120: left lobe of thyroid gland
+http://purl.obolibrary.org/obo/UBERON_0001154: vermiform appendix
+http://purl.obolibrary.org/obo/UBERON_0001157: transverse colon
+http://purl.obolibrary.org/obo/UBERON_0001159: sigmoid colon
+http://purl.obolibrary.org/obo/UBERON_0001233: right adrenal gland
+http://purl.obolibrary.org/obo/UBERON_0001234: left adrenal gland
+http://purl.obolibrary.org/obo/UBERON_0001302: right uterine tube
+http://purl.obolibrary.org/obo/UBERON_0001303: left uterine tube
+http://purl.obolibrary.org/obo/UBERON_0001323: tibial nerve
+http://purl.obolibrary.org/obo/UBERON_0001625: right coronary artery
+http://purl.obolibrary.org/obo/UBERON_0001626: left coronary artery
+http://purl.obolibrary.org/obo/UBERON_0002098: apex of heart
+http://purl.obolibrary.org/obo/UBERON_0002118: right ovary
+http://purl.obolibrary.org/obo/UBERON_0002119: left ovary
+http://purl.obolibrary.org/obo/UBERON_0002250: popliteal artery
+http://purl.obolibrary.org/obo/UBERON_0002810: right frontal lobe
+http://purl.obolibrary.org/obo/UBERON_0004533: left testis
+http://purl.obolibrary.org/obo/UBERON_0004534: right testis
+http://purl.obolibrary.org/obo/UBERON_0004991: mucosa of transverse colon
+http://purl.obolibrary.org/obo/UBERON_0006469: C1 segment of cervical spinal cord
+http://purl.obolibrary.org/obo/UBERON_0007610: tibial artery
+http://purl.obolibrary.org/obo/UBERON_0009835: anterior cingulate cortex
+http://purl.obolibrary.org/obo/UBERON_0009853: body of uterus
+http://purl.obolibrary.org/obo/UBERON_0012249: ectocervix
+http://purl.obolibrary.org/obo/UBERON_0013473: lower esophagus
+http://purl.obolibrary.org/obo/UBERON_0013540: Brodmann (1909) area 9
+http://purl.obolibrary.org/obo/UBERON_0014890: right hemisphere of cerebellum
+http://purl.obolibrary.org/obo/UBERON_0035805: muscle layer of sigmoid colon
+http://purl.obolibrary.org/obo/UBERON_0035825: left adrenal gland cortex
+http://purl.obolibrary.org/obo/UBERON_0035827: right adrenal gland cortex
+http://purl.obolibrary.org/obo/UBERON_0035833: lower esophagus muscularis layer
+http://purl.obolibrary.org/obo/UBERON_0035834: lower esophagus mucosa
+http://purl.obolibrary.org/obo/UBERON_0035841: esophagogastric junction muscularis propria
+http://purl.obolibrary.org/obo/UBERON_0001150: body of pancreas
+http://purl.obolibrary.org/obo/UBERON_0001621: coronary artery
+http://purl.obolibrary.org/obo/UBERON_0012489: muscle layer of colon
+http://purl.obolibrary.org/obo/UBERON_0001511: skin of leg
+http://purl.obolibrary.org/obo/UBERON_0001830: minor salivary gland
+http://purl.obolibrary.org/obo/UBERON_0000310: breast
+http://purl.obolibrary.org/obo/UBERON_0000317: colonic mucosa
+http://purl.obolibrary.org/obo/UBERON_0000376: hindlimb stylopod
+http://purl.obolibrary.org/obo/UBERON_0000978: leg
+http://purl.obolibrary.org/obo/UBERON_0001153: caecum
+http://purl.obolibrary.org/obo/UBERON_0001207: mucosa of large intestine
+http://purl.obolibrary.org/obo/UBERON_0002101: limb
+http://purl.obolibrary.org/obo/UBERON_0002103: hindlimb
+http://purl.obolibrary.org/obo/UBERON_0009854: digestive tract diverticulum
+http://purl.obolibrary.org/obo/UBERON_0000178: blood
+http://purl.obolibrary.org/obo/UBERON_0000459: uterine wall
+http://purl.obolibrary.org/obo/UBERON_0000993: oviduct
+http://purl.obolibrary.org/obo/UBERON_0000995: uterus
+http://purl.obolibrary.org/obo/UBERON_0001295: endometrium
+http://purl.obolibrary.org/obo/UBERON_0001987: placenta
+http://purl.obolibrary.org/obo/UBERON_0002240: spinal cord
+http://purl.obolibrary.org/obo/UBERON_0004716: conceptus
+http://purl.obolibrary.org/obo/UBERON_0016887: entire extraembryonic component
+http://purl.obolibrary.org/obo/UBERON_0001161: body of stomach
+http://purl.obolibrary.org/obo/UBERON_0000002: uterine cervix
+http://purl.obolibrary.org/obo/UBERON_0000006: islet of Langerhans
+http://purl.obolibrary.org/obo/UBERON_0000010: peripheral nervous system
+http://purl.obolibrary.org/obo/UBERON_0000016: endocrine pancreas
+http://purl.obolibrary.org/obo/UBERON_0000081: metanephros
+http://purl.obolibrary.org/obo/UBERON_0000204: ventral part of telencephalon
+http://purl.obolibrary.org/obo/UBERON_0000369: corpus striatum
+http://purl.obolibrary.org/obo/UBERON_0000947: aorta
+http://purl.obolibrary.org/obo/UBERON_0000996: vagina
+http://purl.obolibrary.org/obo/UBERON_0001021: nerve
+http://purl.obolibrary.org/obo/UBERON_0001043: esophagus
+http://purl.obolibrary.org/obo/UBERON_0001096: wall of esophagus
+http://purl.obolibrary.org/obo/UBERON_0001113: lobe of liver
+http://purl.obolibrary.org/obo/UBERON_0001114: right lobe of liver
+http://purl.obolibrary.org/obo/UBERON_0001118: lobe of thyroid gland
+http://purl.obolibrary.org/obo/UBERON_0001135: smooth muscle tissue
+http://purl.obolibrary.org/obo/UBERON_0001160: fundus of stomach
+http://purl.obolibrary.org/obo/UBERON_0001167: wall of stomach
+http://purl.obolibrary.org/obo/UBERON_0001168: wall of small intestine
+http://purl.obolibrary.org/obo/UBERON_0001199: mucosa of stomach
+http://purl.obolibrary.org/obo/UBERON_0001204: mucosa of small intestine
+http://purl.obolibrary.org/obo/UBERON_0001211: Peyer&#39;s patch
+http://purl.obolibrary.org/obo/UBERON_0001235: adrenal cortex
+http://purl.obolibrary.org/obo/UBERON_0001255: urinary bladder
+http://purl.obolibrary.org/obo/UBERON_0001296: myometrium
+http://purl.obolibrary.org/obo/UBERON_0001322: sciatic nerve
+http://purl.obolibrary.org/obo/UBERON_0001388: gastrocnemius
+http://purl.obolibrary.org/obo/UBERON_0001416: skin of abdomen
+http://purl.obolibrary.org/obo/UBERON_0001419: skin of limb
+http://purl.obolibrary.org/obo/UBERON_0001496: ascending aorta
+http://purl.obolibrary.org/obo/UBERON_0001515: thoracic aorta
+http://purl.obolibrary.org/obo/UBERON_0001637: artery
+http://purl.obolibrary.org/obo/UBERON_0001665: triceps surae
+http://purl.obolibrary.org/obo/UBERON_0001813: spinal nerve plexus
+http://purl.obolibrary.org/obo/UBERON_0001815: lumbosacral nerve plexus
+http://purl.obolibrary.org/obo/UBERON_0001876: amygdala
+http://purl.obolibrary.org/obo/UBERON_0001882: nucleus accumbens
+http://purl.obolibrary.org/obo/UBERON_0001891: midbrain
+http://purl.obolibrary.org/obo/UBERON_0001911: mammary gland
+http://purl.obolibrary.org/obo/UBERON_0001948: regional part of spinal cord
+http://purl.obolibrary.org/obo/UBERON_0001981: blood vessel
+http://purl.obolibrary.org/obo/UBERON_0002038: substantia nigra
+http://purl.obolibrary.org/obo/UBERON_0002049: vasculature
+http://purl.obolibrary.org/obo/UBERON_0002078: right cardiac atrium
+http://purl.obolibrary.org/obo/UBERON_0002081: cardiac atrium
+http://purl.obolibrary.org/obo/UBERON_0002082: cardiac ventricle
+http://purl.obolibrary.org/obo/UBERON_0002084: heart left ventricle
+http://purl.obolibrary.org/obo/UBERON_0002110: gall bladder
+http://purl.obolibrary.org/obo/UBERON_0002167: right lung
+http://purl.obolibrary.org/obo/UBERON_0002168: left lung
+http://purl.obolibrary.org/obo/UBERON_0002190: subcutaneous adipose tissue
+http://purl.obolibrary.org/obo/UBERON_0002196: adenohypophysis
+http://purl.obolibrary.org/obo/UBERON_0002201: vasculature of trunk
+http://purl.obolibrary.org/obo/UBERON_0002308: nucleus of brain
+http://purl.obolibrary.org/obo/UBERON_0002358: peritoneum
+http://purl.obolibrary.org/obo/UBERON_0002367: prostate gland
+http://purl.obolibrary.org/obo/UBERON_0002435: striatum
+http://purl.obolibrary.org/obo/UBERON_0002469: esophagus mucosa
+http://purl.obolibrary.org/obo/UBERON_0002743: basal forebrain
+http://purl.obolibrary.org/obo/UBERON_0003027: cingulate cortex
+http://purl.obolibrary.org/obo/UBERON_0003454: small intestine Peyer&#39;s patch
+http://purl.obolibrary.org/obo/UBERON_0003509: arterial blood vessel
+http://purl.obolibrary.org/obo/UBERON_0003513: trunk blood vessel
+http://purl.obolibrary.org/obo/UBERON_0003586: trunk connective tissue
+http://purl.obolibrary.org/obo/UBERON_0003697: abdominal wall
+http://purl.obolibrary.org/obo/UBERON_0003729: mouth mucosa
+http://purl.obolibrary.org/obo/UBERON_0003823: hindlimb zeugopod
+http://purl.obolibrary.org/obo/UBERON_0003889: fallopian tube
+http://purl.obolibrary.org/obo/UBERON_0004256: hindlimb zeugopod muscle
+http://purl.obolibrary.org/obo/UBERON_0004537: blood vasculature
+http://purl.obolibrary.org/obo/UBERON_0004572: arterial system
+http://purl.obolibrary.org/obo/UBERON_0005200: thoracic mammary gland
+http://purl.obolibrary.org/obo/UBERON_0005382: dorsal striatum
+http://purl.obolibrary.org/obo/UBERON_0005383: caudate-putamen
+http://purl.obolibrary.org/obo/UBERON_0005399: male reproductive gland
+http://purl.obolibrary.org/obo/UBERON_0005906: serous sac
+http://purl.obolibrary.org/obo/UBERON_0006876: vasculature of organ
+http://purl.obolibrary.org/obo/UBERON_0007798: vascular system
+http://purl.obolibrary.org/obo/UBERON_0008951: left lung lobe
+http://purl.obolibrary.org/obo/UBERON_0009661: midbrain nucleus
+http://purl.obolibrary.org/obo/UBERON_0009663: telencephalic nucleus
+http://purl.obolibrary.org/obo/UBERON_0010011: collection of basal ganglia
+http://purl.obolibrary.org/obo/UBERON_0010533: metanephros cortex
+http://purl.obolibrary.org/obo/UBERON_0013768: great vessel of heart
+http://purl.obolibrary.org/obo/UBERON_0035820: peritoneal sac
+http://purl.obolibrary.org/obo/UBERON_0003498: heart blood vessel
+http://purl.obolibrary.org/obo/UBERON_0003532: hindlimb skin
+http://purl.obolibrary.org/obo/UBERON_0001873: caudate nucleus
+http://purl.obolibrary.org/obo/UBERON_0008948: upper lobe of lung
+http://purl.obolibrary.org/obo/UBERON_0001178: visceral peritoneum
+http://purl.obolibrary.org/obo/UBERON_0002245: cerebellar hemisphere
+http://purl.obolibrary.org/obo/UBERON_0001874: putamen
+http://purl.obolibrary.org/obo/UBERON_0007808: adipose tissue of abdominal region
+http://purl.obolibrary.org/obo/UBERON_0010414: omental fat pad
+http://purl.obolibrary.org/obo/UBERON_0003688: omentum
+http://purl.obolibrary.org/obo/UBERON_0006631: right atrium auricular region
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="build-a-subgraph-with-a-construct-where-query">
+<h2>4.2. Build a subgraph with a CONSTRUCT … WHERE query<a class="headerlink" href="#build-a-subgraph-with-a-construct-where-query" title="Permalink to this headline">#</a></h2>
+<p>A “CONSTRUCT” query builds a sub-graph from a graph pattern matched in the where clause.</p>
+<p>Structure of a “CONSTRUCT” query:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONSTRUCT</span> <span class="p">{</span>
+<span class="o">...</span> <span class="n">sub</span> <span class="n">graph</span> <span class="n">pattern</span> <span class="o">...</span>
+<span class="p">}</span> <span class="n">WHERE</span> <span class="p">{</span>
+<span class="o">...</span> <span class="n">graph</span> <span class="n">pattern</span> <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Reuse the “WHERE” clause of the previous query to build a subgraph with only <code class="docutils literal notranslate"><span class="pre">genex:isExpressedIn</span></code> and <code class="docutils literal notranslate"><span class="pre">rdfs:label</span></code> relations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bgee_subgraph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">PREFIX orth: &lt;http://purl.org/net/orth#&gt;</span>
+<span class="s2">PREFIX genex: &lt;http://purl.org/genex#&gt;</span>
+<span class="s2">PREFIX obo: &lt;http://purl.obolibrary.org/obo/&gt;</span>
+<span class="s2">PREFIX etbii: &lt;http://etbii/&gt;</span>
+
+<span class="s2">CONSTRUCT {</span>
+<span class="s2">   ?seq etbii:isTissu ?anatName .</span>
+
+<span class="s2">} WHERE {</span>
+<span class="s2">    ?anatEntity a genex:AnatomicalEntity ;</span>
+<span class="s2">                rdfs:label ?anatName .</span>
+<span class="s2">    ?organism obo:RO_0002162 &lt;http://purl.uniprot.org/taxonomy/9606&gt; . </span>
+<span class="s2">    ?seq a orth:Gene;</span>
+<span class="s2">     orth:organism ?organism ;</span>
+<span class="s2">     rdfs:label ?geneName .</span>
+<span class="s2">    ?seq genex:isExpressedIn ?anatEntity.</span>
+<span class="s2">    FILTER (?geneName = &#39;TEKT4&#39;)</span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">sparql</span> <span class="o">=</span> <span class="n">SPARQLWrapper</span><span class="p">(</span><span class="s2">&quot;http://bgee.org/sparql&quot;</span><span class="p">)</span>
+<span class="n">sparql</span><span class="o">.</span><span class="n">setQuery</span><span class="p">(</span><span class="n">bgee_subgraph</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">sparql</span><span class="o">.</span><span class="n">query</span><span class="p">()</span><span class="o">.</span><span class="n">convert</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">))</span>
+<span class="c1">#print(results)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;turtle&quot;</span><span class="p">))</span>
+
+<span class="n">KG</span> <span class="o">=</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>301
+@prefix ns2: &lt;http://etbii/&gt; .
+
+&lt;http://omabrowser.org/ontology/oma#GENE_ENSG00000163060&gt; ns2:isTissu &quot;Ammon&#39;s horn&quot;,
+        &quot;Brodmann (1909) area 9&quot;,
+        &quot;C1 segment of cervical spinal cord&quot;,
+        &quot;Peyer&#39;s patch&quot;,
+        &quot;abdomen&quot;,
+        &quot;abdominal aorta&quot;,
+        &quot;abdominal segment of trunk&quot;,
+        &quot;abdominal wall&quot;,
+        &quot;adenohypophysis&quot;,
+        &quot;adipose tissue&quot;,
+        &quot;adipose tissue of abdominal region&quot;,
+        &quot;adrenal cortex&quot;,
+        &quot;adrenal gland&quot;,
+        &quot;adult mammalian kidney&quot;,
+        &quot;alimentary part of gastrointestinal system&quot;,
+        &quot;amygdala&quot;,
+        &quot;anatomical entity&quot;,
+        &quot;anatomical structure&quot;,
+        &quot;anatomical system&quot;,
+        &quot;anterior cingulate cortex&quot;,
+        &quot;aorta&quot;,
+        &quot;apex of heart&quot;,
+        &quot;appendage musculature&quot;,
+        &quot;appendage vasculature&quot;,
+        &quot;arterial blood vessel&quot;,
+        &quot;arterial system&quot;,
+        &quot;artery&quot;,
+        &quot;ascending aorta&quot;,
+        &quot;basal forebrain&quot;,
+        &quot;blood&quot;,
+        &quot;blood cell&quot;,
+        &quot;blood vasculature&quot;,
+        &quot;blood vessel&quot;,
+        &quot;body of pancreas&quot;,
+        &quot;body of stomach&quot;,
+        &quot;body of uterus&quot;,
+        &quot;body proper&quot;,
+        &quot;brain&quot;,
+        &quot;brain gray matter&quot;,
+        &quot;breast&quot;,
+        &quot;caecum&quot;,
+        &quot;cardiac atrium&quot;,
+        &quot;cardiac ventricle&quot;,
+        &quot;cardiovascular system&quot;,
+        &quot;caudate nucleus&quot;,
+        &quot;caudate-putamen&quot;,
+        &quot;cell&quot;,
+        &quot;central nervous system&quot;,
+        &quot;cerebellar cortex&quot;,
+        &quot;cerebellar hemisphere&quot;,
+        &quot;cerebellum&quot;,
+        &quot;cerebral cortex&quot;,
+        &quot;cerebral hemisphere&quot;,
+        &quot;cerebral hemisphere gray matter&quot;,
+        &quot;cingulate cortex&quot;,
+        &quot;collection of basal ganglia&quot;,
+        &quot;colon&quot;,
+        &quot;colonic mucosa&quot;,
+        &quot;conceptus&quot;,
+        &quot;connective tissue&quot;,
+        &quot;connective tissue cell&quot;,
+        &quot;coronary artery&quot;,
+        &quot;corpus striatum&quot;,
+        &quot;cortex of kidney&quot;,
+        &quot;craniocervical region&quot;,
+        &quot;descending aorta&quot;,
+        &quot;descending thoracic aorta&quot;,
+        &quot;diencephalon&quot;,
+        &quot;digestive system&quot;,
+        &quot;digestive system element&quot;,
+        &quot;digestive tract&quot;,
+        &quot;digestive tract diverticulum&quot;,
+        &quot;dorsal striatum&quot;,
+        &quot;dorsolateral prefrontal cortex&quot;,
+        &quot;ectocervix&quot;,
+        &quot;ectoderm-derived structure&quot;,
+        &quot;endocervix&quot;,
+        &quot;endocrine gland&quot;,
+        &quot;endocrine pancreas&quot;,
+        &quot;endocrine system&quot;,
+        &quot;endometrium&quot;,
+        &quot;entire extraembryonic component&quot;,
+        &quot;esophagogastric junction muscularis propria&quot;,
+        &quot;esophagus&quot;,
+        &quot;esophagus mucosa&quot;,
+        &quot;exocrine gland&quot;,
+        &quot;face&quot;,
+        &quot;fallopian tube&quot;,
+        &quot;female organism&quot;,
+        &quot;female reproductive organ&quot;,
+        &quot;female reproductive system&quot;,
+        &quot;forebrain&quot;,
+        &quot;foregut&quot;,
+        &quot;frontal cortex&quot;,
+        &quot;frontal lobe&quot;,
+        &quot;fundus of stomach&quot;,
+        &quot;gall bladder&quot;,
+        &quot;gastrocnemius&quot;,
+        &quot;gastrointestinal system mucosa&quot;,
+        &quot;gland&quot;,
+        &quot;gland of diencephalon&quot;,
+        &quot;gonad&quot;,
+        &quot;granulocyte&quot;,
+        &quot;gray matter&quot;,
+        &quot;great vessel of heart&quot;,
+        &quot;head&quot;,
+        &quot;heart&quot;,
+        &quot;heart blood vessel&quot;,
+        &quot;heart left ventricle&quot;,
+        &quot;hematopoietic system&quot;,
+        &quot;hemolymphoid system&quot;,
+        &quot;hepatobiliary system&quot;,
+        &quot;hindbrain&quot;,
+        &quot;hindlimb&quot;,
+        &quot;hindlimb blood vessel&quot;,
+        &quot;hindlimb skin&quot;,
+        &quot;hindlimb stylopod&quot;,
+        &quot;hindlimb stylopod muscle&quot;,
+        &quot;hindlimb zeugopod&quot;,
+        &quot;hindlimb zeugopod muscle&quot;,
+        &quot;hippocampal formation&quot;,
+        &quot;hypothalamus&quot;,
+        &quot;iliac artery&quot;,
+        &quot;immune organ&quot;,
+        &quot;integument&quot;,
+        &quot;integumental system&quot;,
+        &quot;intestinal mucosa&quot;,
+        &quot;intestine&quot;,
+        &quot;islet of Langerhans&quot;,
+        &quot;kidney&quot;,
+        &quot;large intestine&quot;,
+        &quot;left adrenal gland&quot;,
+        &quot;left adrenal gland cortex&quot;,
+        &quot;left coronary artery&quot;,
+        &quot;left lobe of thyroid gland&quot;,
+        &quot;left lung&quot;,
+        &quot;left lung lobe&quot;,
+        &quot;left ovary&quot;,
+        &quot;left testis&quot;,
+        &quot;left uterine tube&quot;,
+        &quot;leg&quot;,
+        &quot;limb&quot;,
+        &quot;limb muscle&quot;,
+        &quot;liver&quot;,
+        &quot;lobe of liver&quot;,
+        &quot;lobe of thyroid gland&quot;,
+        &quot;lower esophagus&quot;,
+        &quot;lower esophagus mucosa&quot;,
+        &quot;lower esophagus muscularis layer&quot;,
+        &quot;lower respiratory tract&quot;,
+        &quot;lumbosacral nerve plexus&quot;,
+        &quot;lung&quot;,
+        &quot;lymph node&quot;,
+        &quot;lymphoid system&quot;,
+        &quot;male organism&quot;,
+        &quot;male reproductive gland&quot;,
+        &quot;male reproductive system&quot;,
+        &quot;mammary gland&quot;,
+        &quot;material anatomical entity&quot;,
+        &quot;metanephros&quot;,
+        &quot;metanephros cortex&quot;,
+        &quot;metencephalon&quot;,
+        &quot;midbrain&quot;,
+        &quot;midbrain nucleus&quot;,
+        &quot;minor salivary gland&quot;,
+        &quot;mouth&quot;,
+        &quot;mouth mucosa&quot;,
+        &quot;mucosa of large intestine&quot;,
+        &quot;mucosa of oral region&quot;,
+        &quot;mucosa of small intestine&quot;,
+        &quot;mucosa of stomach&quot;,
+        &quot;mucosa of transverse colon&quot;,
+        &quot;multicellular organism&quot;,
+        &quot;muscle layer of colon&quot;,
+        &quot;muscle layer of sigmoid colon&quot;,
+        &quot;muscle of leg&quot;,
+        &quot;muscle organ&quot;,
+        &quot;muscle tissue&quot;,
+        &quot;musculature&quot;,
+        &quot;musculature of body&quot;,
+        &quot;musculature of limb&quot;,
+        &quot;musculoskeletal system&quot;,
+        &quot;myometrium&quot;,
+        &quot;nasal cavity mucosa&quot;,
+        &quot;neocortex&quot;,
+        &quot;nerve&quot;,
+        &quot;nervous system&quot;,
+        &quot;nose&quot;,
+        &quot;nucleus accumbens&quot;,
+        &quot;nucleus of brain&quot;,
+        &quot;occipital cortex&quot;,
+        &quot;occipital lobe&quot;,
+        &quot;olfactory organ&quot;,
+        &quot;olfactory segment of nasal mucosa&quot;,
+        &quot;olfactory system&quot;,
+        &quot;omental fat pad&quot;,
+        &quot;omentum&quot;,
+        &quot;oral gland&quot;,
+        &quot;oral lamina propria&quot;,
+        &quot;organism subdivision&quot;,
+        &quot;ovary&quot;,
+        &quot;oviduct&quot;,
+        &quot;pallium&quot;,
+        &quot;pancreas&quot;,
+        &quot;pelvic complex muscle&quot;,
+        &quot;peripheral nervous system&quot;,
+        &quot;peritoneal sac&quot;,
+        &quot;peritoneum&quot;,
+        &quot;pituitary gland&quot;,
+        &quot;placenta&quot;,
+        &quot;popliteal artery&quot;,
+        &quot;prefrontal cortex&quot;,
+        &quot;primary visual cortex&quot;,
+        &quot;prostate gland&quot;,
+        &quot;proximo-distal subdivision of respiratory tract&quot;,
+        &quot;putamen&quot;,
+        &quot;regional part of brain&quot;,
+        &quot;regional part of spinal cord&quot;,
+        &quot;renal system&quot;,
+        &quot;reproductive organ&quot;,
+        &quot;reproductive system&quot;,
+        &quot;respiratory system&quot;,
+        &quot;right adrenal gland&quot;,
+        &quot;right adrenal gland cortex&quot;,
+        &quot;right atrium auricular region&quot;,
+        &quot;right cardiac atrium&quot;,
+        &quot;right coronary artery&quot;,
+        &quot;right frontal lobe&quot;,
+        &quot;right hemisphere of cerebellum&quot;,
+        &quot;right lobe of liver&quot;,
+        &quot;right lobe of thyroid gland&quot;,
+        &quot;right lung&quot;,
+        &quot;right ovary&quot;,
+        &quot;right testis&quot;,
+        &quot;right uterine tube&quot;,
+        &quot;saliva-secreting gland&quot;,
+        &quot;sciatic nerve&quot;,
+        &quot;sense organ&quot;,
+        &quot;sensory system&quot;,
+        &quot;serous sac&quot;,
+        &quot;sigmoid colon&quot;,
+        &quot;skeletal muscle organ&quot;,
+        &quot;skeletal muscle tissue&quot;,
+        &quot;skeletal musculature&quot;,
+        &quot;skin of abdomen&quot;,
+        &quot;skin of body&quot;,
+        &quot;skin of leg&quot;,
+        &quot;skin of limb&quot;,
+        &quot;small intestine&quot;,
+        &quot;small intestine Peyer&#39;s patch&quot;,
+        &quot;smooth muscle tissue&quot;,
+        &quot;somatic cell&quot;,
+        &quot;spinal cord&quot;,
+        &quot;spinal nerve plexus&quot;,
+        &quot;spleen&quot;,
+        &quot;stomach&quot;,
+        &quot;striated muscle tissue&quot;,
+        &quot;striatum&quot;,
+        &quot;stromal cell of endometrium&quot;,
+        &quot;structure with developmental contribution from neural crest&quot;,
+        &quot;subcutaneous adipose tissue&quot;,
+        &quot;subdivision of head&quot;,
+        &quot;substantia nigra&quot;,
+        &quot;superior frontal gyrus&quot;,
+        &quot;telencephalic nucleus&quot;,
+        &quot;telencephalon&quot;,
+        &quot;temporal lobe&quot;,
+        &quot;testis&quot;,
+        &quot;thoracic aorta&quot;,
+        &quot;thoracic mammary gland&quot;,
+        &quot;thoracic segment of trunk&quot;,
+        &quot;thyroid gland&quot;,
+        &quot;tibial artery&quot;,
+        &quot;tibial nerve&quot;,
+        &quot;transverse colon&quot;,
+        &quot;triceps surae&quot;,
+        &quot;trunk&quot;,
+        &quot;trunk blood vessel&quot;,
+        &quot;trunk connective tissue&quot;,
+        &quot;upper lobe of left lung&quot;,
+        &quot;upper lobe of lung&quot;,
+        &quot;upper respiratory tract&quot;,
+        &quot;urinary bladder&quot;,
+        &quot;uterine cervix&quot;,
+        &quot;uterine wall&quot;,
+        &quot;uterus&quot;,
+        &quot;vagina&quot;,
+        &quot;vascular system&quot;,
+        &quot;vasculature&quot;,
+        &quot;vasculature of organ&quot;,
+        &quot;vasculature of trunk&quot;,
+        &quot;ventral part of telencephalon&quot;,
+        &quot;vermiform appendix&quot;,
+        &quot;visceral peritoneum&quot;,
+        &quot;viscus&quot;,
+        &quot;visual cortex&quot;,
+        &quot;wall of esophagus&quot;,
+        &quot;wall of intestine&quot;,
+        &quot;wall of small intestine&quot;,
+        &quot;wall of stomach&quot;,
+        &quot;zone of skin&quot; .
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now you can use a VALUES clause to inject the results of the previous query <code class="docutils literal notranslate"><span class="pre">VALUES</span> <span class="pre">?x</span> <span class="pre">{</span> <span class="pre">v1</span> <span class="pre">v2</span> <span class="pre">v3</span> <span class="pre">...</span> <span class="pre">vN</span> <span class="pre">}</span></code> in this new query.</p>
+<p>Modify the query to inject <code class="docutils literal notranslate"><span class="pre">&quot;SCN5A&quot;</span> <span class="pre">&quot;KCC2D&quot;</span> <span class="pre">&quot;FGF12&quot;</span> <span class="pre">&quot;ZMY19&quot;</span> <span class="pre">&quot;EMC9&quot;</span> <span class="pre">&quot;BANP&quot;</span> <span class="pre">&quot;Q49AR9&quot;</span> <span class="pre">&quot;TEKT4&quot;</span> <span class="pre">&quot;PTN3&quot;</span></code> as gene of interest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bgee_subgraph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">PREFIX orth: &lt;http://purl.org/net/orth#&gt;</span>
+<span class="s2">PREFIX genex: &lt;http://purl.org/genex#&gt;</span>
+<span class="s2">PREFIX obo: &lt;http://purl.obolibrary.org/obo/&gt;</span>
+
+<span class="s2">CONSTRUCT {</span>
+<span class="s2">   ?seq genex:isExpressedIn ?anatEntity ;</span>
+<span class="s2">   rdfs:label ?geneName .</span>
+
+<span class="s2">} WHERE {</span>
+<span class="s2">    VALUE(?g_label {&quot;&quot;&quot;</span><span class="o">+</span><span class="n">genes</span><span class="o">+</span><span class="s2">&quot;&quot;&quot;}) .</span>
+
+<span class="s2">    ?anatEntity a genex:AnatomicalEntity ;</span>
+<span class="s2">                rdfs:label ?anatName .</span>
+<span class="s2">    ?organism obo:RO_0002162 &lt;http://purl.uniprot.org/taxonomy/9606&gt; . </span>
+<span class="s2">    ?seq a orth:Gene;</span>
+<span class="s2">     orth:organism ?organism ;</span>
+<span class="s2">     rdfs:label ?geneName .</span>
+<span class="s2">    ?seq genex:isExpressedIn ?anatEntity.</span>
+<span class="s2">    FILTER (regex(?anatEntity, &quot;CL_&quot;))</span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">sparql</span> <span class="o">=</span> <span class="n">SPARQLWrapper</span><span class="p">(</span><span class="s2">&quot;http://bgee.org/sparql&quot;</span><span class="p">)</span>
+<span class="n">sparql</span><span class="o">.</span><span class="n">setQuery</span><span class="p">(</span><span class="n">bgee_subgraph</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">sparql</span><span class="o">.</span><span class="n">query</span><span class="p">()</span><span class="o">.</span><span class="n">convert</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">))</span>
+<span class="c1">#print(results)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;turtle&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">HTTPError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">File ~/.local/lib/python3.10/site-packages/SPARQLWrapper/Wrapper.py:926,</span> in <span class="ni">SPARQLWrapper._query</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">925</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">926</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">urlopener</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">927</span> <span class="k">return</span> <span class="n">response</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">returnFormat</span>
+
+<span class="nn">File /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:216,</span> in <span class="ni">urlopen</span><span class="nt">(url, data, timeout, cafile, capath, cadefault, context)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">opener</span> <span class="o">=</span> <span class="n">_opener</span>
+<span class="ne">--&gt; </span><span class="mi">216</span> <span class="k">return</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+
+<span class="nn">File /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:525,</span> in <span class="ni">OpenerDirector.open</span><span class="nt">(self, fullurl, data, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">524</span>     <span class="n">meth</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">processor</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">525</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">meth</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">527</span> <span class="k">return</span> <span class="n">response</span>
+
+<span class="nn">File /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:634,</span> in <span class="ni">HTTPErrorProcessor.http_response</span><span class="nt">(self, request, response)</span>
+<span class="g g-Whitespace">    </span><span class="mi">633</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">200</span> <span class="o">&lt;=</span> <span class="n">code</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">634</span>     <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">635</span>         <span class="s1">&#39;http&#39;</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">637</span> <span class="k">return</span> <span class="n">response</span>
+
+<span class="nn">File /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:557,</span> in <span class="ni">OpenerDirector.error</span><span class="nt">(self, proto, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">556</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="n">proto</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span> <span class="o">+</span> <span class="n">args</span>
+<span class="ne">--&gt; </span><span class="mi">557</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_chain</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">558</span> <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+
+<span class="nn">File /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:496,</span> in <span class="ni">OpenerDirector._call_chain</span><span class="nt">(self, chain, kind, meth_name, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span> <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">496</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span> <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:749,</span> in <span class="ni">HTTPRedirectHandler.http_error_302</span><span class="nt">(self, req, fp, code, msg, headers)</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span> <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">749</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">new</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">timeout</span><span class="p">)</span>
+
+<span class="nn">File /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:525,</span> in <span class="ni">OpenerDirector.open</span><span class="nt">(self, fullurl, data, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">524</span>     <span class="n">meth</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">processor</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">525</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">meth</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">527</span> <span class="k">return</span> <span class="n">response</span>
+
+<span class="nn">File /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:634,</span> in <span class="ni">HTTPErrorProcessor.http_response</span><span class="nt">(self, request, response)</span>
+<span class="g g-Whitespace">    </span><span class="mi">633</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">200</span> <span class="o">&lt;=</span> <span class="n">code</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">634</span>     <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">635</span>         <span class="s1">&#39;http&#39;</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">637</span> <span class="k">return</span> <span class="n">response</span>
+
+<span class="nn">File /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:563,</span> in <span class="ni">OpenerDirector.error</span><span class="nt">(self, proto, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">562</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="s1">&#39;http_error_default&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">orig_args</span>
+<span class="ne">--&gt; </span><span class="mi">563</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_chain</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+<span class="nn">File /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:496,</span> in <span class="ni">OpenerDirector._call_chain</span><span class="nt">(self, chain, kind, meth_name, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span> <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">496</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span> <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /shared/ifbstor1/software/miniconda/envs/jupyter-book-0.13.1/lib/python3.10/urllib/request.py:643,</span> in <span class="ni">HTTPDefaultErrorHandler.http_error_default</span><span class="nt">(self, req, fp, code, msg, hdrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">642</span> <span class="k">def</span> <span class="nf">http_error_default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">643</span>     <span class="k">raise</span> <span class="n">HTTPError</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">full_url</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hdrs</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
+
+<span class="ne">HTTPError</span>: HTTP Error 400: Bad Request
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">QueryBadFormed</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">25</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">sparql</span> <span class="o">=</span> <span class="n">SPARQLWrapper</span><span class="p">(</span><span class="s2">&quot;http://bgee.org/sparql&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">sparql</span><span class="o">.</span><span class="n">setQuery</span><span class="p">(</span><span class="n">bgee_subgraph</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">25</span> <span class="n">results</span> <span class="o">=</span> <span class="n">sparql</span><span class="o">.</span><span class="n">query</span><span class="p">()</span><span class="o">.</span><span class="n">convert</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="c1">#print(results)</span>
+
+<span class="nn">File ~/.local/lib/python3.10/site-packages/SPARQLWrapper/Wrapper.py:960,</span> in <span class="ni">SPARQLWrapper.query</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">942</span> <span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;QueryResult&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">943</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span><span class="sd">     Execute the query.</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span><span class="sd">     Exceptions can be raised if either the URI is wrong or the HTTP sends back an error (this is also the</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">958</span><span class="sd">     :rtype: :class:`QueryResult` instance</span>
+<span class="g g-Whitespace">    </span><span class="mi">959</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">960</span>     <span class="k">return</span> <span class="n">QueryResult</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_query</span><span class="p">())</span>
+
+<span class="nn">File ~/.local/lib/python3.10/site-packages/SPARQLWrapper/Wrapper.py:930,</span> in <span class="ni">SPARQLWrapper._query</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">928</span> <span class="k">except</span> <span class="n">urllib</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">929</span>     <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="mi">400</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">930</span>         <span class="k">raise</span> <span class="n">QueryBadFormed</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">931</span>     <span class="k">elif</span> <span class="n">e</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">932</span>         <span class="k">raise</span> <span class="n">EndPointNotFound</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="ne">QueryBadFormed</span>: QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. 
+
+<span class="ne">Response</span>:
+<span class="sa">b</span><span class="s1">&#39;Virtuoso 37000 Error SP030: SPARQL compiler, line 13: syntax error at </span><span class="se">\&#39;</span><span class="s1">VALUE</span><span class="se">\&#39;</span><span class="s1"> before </span><span class="se">\&#39;</span><span class="s1">(</span><span class="se">\&#39;\n\n</span><span class="s1">SPARQL query:</span><span class="se">\n</span><span class="s1">define sql:big-data-const 0 </span><span class="se">\n</span><span class="s1">#output-format:application/sparql-results+xml</span><span class="se">\n\n</span><span class="s1">PREFIX orth: &lt;http://purl.org/net/orth#&gt;</span><span class="se">\n</span><span class="s1">PREFIX genex: &lt;http://purl.org/genex#&gt;</span><span class="se">\n</span><span class="s1">PREFIX obo: &lt;http://purl.obolibrary.org/obo/&gt;</span><span class="se">\n\n</span><span class="s1">CONSTRUCT {</span><span class="se">\n</span><span class="s1">   ?seq genex:isExpressedIn ?anatEntity ;</span><span class="se">\n</span><span class="s1">   rdfs:label ?geneName .</span><span class="se">\n\n</span><span class="s1">} WHERE {</span><span class="se">\n</span><span class="s1">    VALUE(?g_label {&quot;SCN5A&quot;}) .</span><span class="se">\n\n</span><span class="s1">    ?anatEntity a genex:AnatomicalEntity ;</span><span class="se">\n</span><span class="s1">                rdfs:label ?anatName .</span><span class="se">\n</span><span class="s1">    ?organism obo:RO_0002162 &lt;http://purl.uniprot.org/taxonomy/9606&gt; . </span><span class="se">\n</span><span class="s1">    ?seq a orth:Gene;</span><span class="se">\n</span><span class="s1">     orth:organism ?organism ;</span><span class="se">\n</span><span class="s1">     rdfs:label ?geneName .</span><span class="se">\n</span><span class="s1">    ?seq genex:isExpressedIn ?anatEntity.</span><span class="se">\n</span><span class="s1">    FILTER (regex(?anatEntity, &quot;CL_&quot;))</span><span class="se">\n</span><span class="s1">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="build-a-network-of-genes-that-are-co-expressed-in-the-same-tissue">
+<h2>5. Build a network of genes that are co-expressed in the same tissue<a class="headerlink" href="#build-a-network-of-genes-that-are-co-expressed-in-the-same-tissue" title="Permalink to this headline">#</a></h2>
+<p>The result of a “CONSTRUCT” is a graph object. You can now write and execute a CONSTRUCT query on this graph to create new <code class="docutils literal notranslate"><span class="pre">coExpressedWith</span></code> between genes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q2</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">PREFIX genex: &lt;http://purl.org/genex#&gt;</span>
+<span class="s2">PREFIX etbii:&lt;http://etbii.fr/ontology/&gt;</span>
+
+<span class="s2">CONSTRUCT {</span>
+<span class="s2">    </span>
+<span class="s2">    ?gene1 etbii:coExpressedWith ?gene2 .</span>
+<span class="s2">    </span>
+<span class="s2">} WHERE {</span>
+<span class="s2">    gene1 genex:isExpressedIN ?tissue .</span>
+<span class="s2">    gene2 genex:isExpressedIN ?tissue .</span>
+<span class="s2">    FILTER(gene1 != gene2)</span>
+<span class="s2">    </span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">coExNet</span> <span class="o">=</span> <span class="n">KG</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">q2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">coExNet</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;turtle&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3.9",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3.9'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="2-Life_Science_ontologies_and_Knowledge_Graphs_-_hands_on.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Life Science ontologies and Knowledge Graphs, HANDS-ON</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="4-Display_graph.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Use cytoscape</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alban Gaignard, Olivier Dameron, Imane Messak et Thomas Denecker<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

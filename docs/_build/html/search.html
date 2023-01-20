@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search &#8212; Web semantic - ETBII</title>
+    <title>Search &#8212; Web semantic</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -76,7 +76,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="visually-hidden">Toggle in-page Table of Contents</div>
 </label>
 <!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
+<div class="announcement header-item noprint">Work in progress</div>
 <div class="header header-item noprint"></div>
 
     
@@ -93,9 +93,14 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
       
       
-      <h1 class="site-logo" id="site-title">Web semantic - ETBII</h1>
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Web semantic</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="#" method="get">
@@ -107,7 +112,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Welcome to the web semantic introduction
                 </a>
             </li>
         </ul>
@@ -118,8 +123,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown-notebooks.html">
-   Notebooks with MyST Markdown
+  <a class="reference internal" href="theory.html">
+   Theory
   </a>
  </li>
 </ul>
@@ -130,8 +135,33 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown.html">
-   Markdown Files
+  <a class="reference internal" href="0-setup-environment.html">
+   Software environment setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-RDF_hands-on.html">
+   Practical introduction to RDF and SPARQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-Life_Science_ontologies_and_Knowledge_Graphs_-_hands_on.html">
+   Life Science ontologies and Knowledge Graphs, HANDS-ON
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-Multi-source_queries.html">
+   Combining graphs from multiple data sources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-Display_graph.html">
+   Use cytoscape
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5-Quiz.html">
+   Summmary quiz
   </a>
  </li>
 </ul>
@@ -142,8 +172,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown2.html">
-   Markdown Files
+  <a class="reference internal" href="genindex.html">
+   Index
   </a>
  </li>
 </ul>

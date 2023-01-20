@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Welcome to your Jupyter Book &#8212; Web semantic - ETBII</title>
+    <title>Welcome to the web semantic introduction &#8212; Web semantic</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
+    <link rel="next" title="Theory" href="theory.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -72,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="visually-hidden">Toggle in-page Table of Contents</div>
 </label>
 <!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
+<div class="announcement header-item noprint">Work in progress</div>
 <div class="header header-item noprint"></div>
 
     
@@ -89,9 +89,14 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
       
       
-      <h1 class="site-logo" id="site-title">Web semantic - ETBII</h1>
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Web semantic</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -103,7 +108,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Welcome to your Jupyter Book
+                    Welcome to the web semantic introduction
                 </a>
             </li>
         </ul>
@@ -114,8 +119,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown-notebooks.html">
-   Notebooks with MyST Markdown
+  <a class="reference internal" href="theory.html">
+   Theory
   </a>
  </li>
 </ul>
@@ -126,8 +131,33 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown.html">
-   Markdown Files
+  <a class="reference internal" href="0-setup-environment.html">
+   Software environment setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-RDF_hands-on.html">
+   Practical introduction to RDF and SPARQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-Life_Science_ontologies_and_Knowledge_Graphs_-_hands_on.html">
+   Life Science ontologies and Knowledge Graphs, HANDS-ON
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-Multi-source_queries.html">
+   Combining graphs from multiple data sources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-Display_graph.html">
+   Use cytoscape
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5-Quiz.html">
+   Summmary quiz
   </a>
  </li>
 </ul>
@@ -138,8 +168,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown2.html">
-   Markdown Files
+  <a class="reference internal" href="genindex.html">
+   Index
   </a>
  </li>
 </ul>
@@ -297,23 +327,74 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#authors">
+   Authors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contributors">
+   Contributors
+  </a>
+  <ul class="nav section-nav flex-column">
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Welcome to your Jupyter Book</h1>
+                <h1>Welcome to the web semantic introduction</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#authors">
+   Authors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contributors">
+   Contributors
+  </a>
+  <ul class="nav section-nav flex-column">
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -321,31 +402,47 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-your-jupyter-book">
-<h1>Welcome to your Jupyter Book<a class="headerlink" href="#welcome-to-your-jupyter-book" title="Permalink to this headline">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-the-web-semantic-introduction">
+<h1>Welcome to the web semantic introduction<a class="headerlink" href="#welcome-to-the-web-semantic-introduction" title="Permalink to this headline">#</a></h1>
+<p>This jupyter book is an introduction to the web semantic with diffrent examples and exercises.</p>
+<p><a class="reference external" href="https://doi.org/10.5281/zenodo.7550601">DOI</a></p>
+<section id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Alban Gaignard</p></li>
+<li><p>Olivier Dameron</p></li>
+</ul>
+</section>
+<section id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Thomas Denecker</p></li>
+<li><p>Imane Messak</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pratice</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0-setup-environment.html">Software environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-RDF_hands-on.html">Practical introduction to RDF and SPARQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2-Life_Science_ontologies_and_Knowledge_Graphs_-_hands_on.html">Life Science ontologies and Knowledge Graphs, HANDS-ON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3-Multi-source_queries.html">Combining graphs from multiple data sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4-Display_graph.html">Use cytoscape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5-Quiz.html">Summmary quiz</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ressources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="markdown2.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -375,10 +472,10 @@ It does not go in-depth into any particular topic - check out <a class="referenc
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="markdown-notebooks.html" title="next page">
+    <a class='right-next' id="next-link" href="theory.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Notebooks with MyST Markdown</p>
+        <p class="prev-next-title">Theory</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

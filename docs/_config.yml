@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Web semantic - ETBII
+title: Web semantic
 author: Alban Gaignard, Olivier Dameron, Imane Messak et Thomas Denecker
 logo: logo.png
 copyright: "2023" 
@@ -31,6 +31,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  announcement: "Work in progress"
 
 sphinx:
   config:
