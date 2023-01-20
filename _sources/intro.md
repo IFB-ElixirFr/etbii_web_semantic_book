@@ -4,6 +4,16 @@ This jupyter book is an introduction to the web semantic with diffrent examples 
 
 [DOI](https://doi.org/10.5281/zenodo.7550601)
 
+## Authors
+
+- Alban Gaignard
+- Olivier Dameron
+
+## Contributors
+
+- Thomas Denecker 
+- Imane Messak
+
 
 ```{tableofcontents}
 ```
